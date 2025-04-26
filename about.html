@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> 
+<html> <!--<![endif]-->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="description" content="Tiflobraille se especializa en accesibilidad e inclusión para personas con discapacidad visual. Ofrecemos productos didácticos, deportivos y educativos, impresoras Braille y servicios de impresión en Braille. ¡Conoce más!">
+
+  <meta name="keywords" content="accesibilidad visual, discapacidad visual, productos Braille, impresión Braille, materiales educativos para ciegos, herramientas para baja visión, inclusión, impresoras Braille">
+
+  <meta name="author" content="Themefisher.com">
+
+  <title>Tiflobraille | Accesibilidad e Inclusión para Personas con Discapacidad Visual</title>
+
+
+<!-- Mobile Specific Meta
+  ================================================== -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+  
+  <!-- CSS
+  ================================================== -->
+  <!-- Themefisher Icon font -->
+  <link rel="stylesheet" href="plugins/themefisher-font/style.css">
+  <!-- bootstrap.min css -->
+  <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+  <!-- Lightbox.min css -->
+  <link rel="stylesheet" href="plugins/lightbox2/dist/css/lightbox.min.css">
+  <!-- animation css -->
+  <link rel="stylesheet" href="plugins/animate/animate.css">
+  <!-- Slick Carousel -->
+  <link rel="stylesheet" href="plugins/slick/slick.css">
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">  
+  <link rel="stylesheet" href="css/accessibility.css">  
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+
+<body id="body">
+
+
+	<!-- Barra de accesibilidad -->
+<div class="accessibility-toolbar" id="accessibilityToolbar">
+    <button class="accessibility-toolbar-toggle" id="accessibilityToggle" aria-label="Abrir herramientas de accesibilidad">
+      <i class="tf-ion-eye"></i>
+    </button>
+    <div class="accessibility-toolbar-content">
+      <h3>Opciones de Accesibilidad</h3>
+      
+      <div class="accessibility-option">
+        <label>Contraste</label>
+        <button id="darkModeToggle" aria-pressed="false">Modo Oscuro</button>
+      </div>
+      
+      <div class="accessibility-option">
+        <label>Tamaño del Texto</label>
+        <button id="decreaseText" aria-label="Reducir tamaño del texto">A-</button>
+        <button id="normalText" aria-label="Tamaño normal de texto">A</button>
+        <button id="increaseText" aria-label="Aumentar tamaño del texto">A+</button>
+      </div>
+      
+      <div class="accessibility-option">
+        <label>Otras Opciones</label>
+        <button id="highlightLinks" aria-pressed="false">Resaltar Enlaces</button>
+        <button id="spacedText" aria-pressed="false">Espaciar Texto</button>
+        <button id="bigCursor" aria-pressed="false">Cursor Grande</button>
+      </div>
+      
+      <div class="accessibility-option">
+        <button id="resetAccessibility" aria-label="Restablecer todas las opciones de accesibilidad">Restablecer Todo</button>
+      </div>
+    </div>
+</div>
+
+ <!--
+  Start Preloader
+  ==================================== -->
+  <div id="preloader">
+    <div class='preloader'>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div> 
+  <!--
+  End Preloader
+  ==================================== -->
+
+
+  
+
+<!--
+Fixed Navigation
+==================================== -->
+<header class="navigation fixed-top">
+  <div class="container">
+    <!-- main nav -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <!-- logo -->
+      <a class="navbar-brand logo" href="index.html">
+        <img class="logo-default" src="images/logo.png" alt="logo"/>
+        <img class="logo-white" src="images/logo-white.png" alt="logo"/>
+      </a>
+      <!-- /logo -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+        aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navigation">
+        <ul class="navbar-nav ml-auto text-center">
+         
+          <li class="nav-item   ">
+            <a class="nav-link" href="index.html">Inicio</a>
+          </li>
+          <li class="nav-item  active ">
+            <a class="nav-link" href="about.html">Nosotros</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="product.html">Productos</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="service.html">Servicios</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="support.html">Soporte Técnico</a>
+          </li>
+         
+          <li class="nav-item ">
+            <a class="nav-link" href="contact.html">Contacto</a>
+          </li>
+         
+        </ul>
+      </div>
+    </nav>
+    <!-- /main nav -->
+  </div>
+</header>
+<!--
+End Fixed Navigation
+==================================== -->
+
+<section class="single-page-header">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2>Nosotros</h2>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<section class="about-shot-info section-sm">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 mt-20">
+				<h2>Tiflo Braille Perú</h2>
+				<p>En Tiflobraille, nos especializamos en la accesibilidad e inclusión de las personas con discapacidad visual. Ofrecemos una amplia gama de productos didácticos, deportivos y educativos diseñados para mejorar la independencia y el aprendizaje de personas ciegas y con baja visión.
+				Además, contamos con impresoras Braille y brindamos servicios de impresión en Braille para libros, documentos y materiales personalizados, garantizando acceso a la información de manera inclusiva. También ofrecemos diversos artefactos y herramientas que facilitan la vida diaria de las personas con discapacidad visual.</p></div>
+			<div class="col-md-6">
+				<img class="img-fluid" src="images/nosotros/concepto.jpg" alt="">
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+<section class="company-mission section-sm bg-gray">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<h3>Misión</h3>
+				<p>En Tiflobraille, nos comprometemos a mejorar la calidad de vida de las personas con discapacidad visual a través de la venta de productos didácticos, deportivos y educativos, así como impresoras y servicios de impresión en Braille. Nuestro objetivo es proporcionar herramientas accesibles que fomenten la educación, la autonomía y la inclusión, contribuyendo al desarrollo de una sociedad más equitativa.</p>
+				<img src="images/nosotros/mision.webp" alt="" class="img-fluid mt-30">
+			</div>
+			<div class="col-md-6">
+				<h3>Visión</h3>
+				<p>Ser la empresa líder en Latinoamérica en la distribución de productos y servicios especializados para personas con discapacidad visual, promoviendo la accesibilidad y el derecho a la información. Buscamos expandir nuestro impacto a través de la innovación, ofreciendo soluciones que permitan a nuestros clientes desenvolverse con mayor independencia en todos los ámbitos de la vida.</p>
+				<img src="images/nosotros/vision.jpg" alt="" class="img-fluid mt-30">
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+	<!--<section class="promo-video section-sm">
+	<div class="container">
+		<div class="row">
+			 section title 
+			<div class="col-12">
+				<div class="title text-center">
+					<h2>Our Promo Video</h2>
+					<p>Vestibulum nisl tortor, consectetur quis imperdiet bibendum, laoreet sed arcu.Sed condimentum iaculis ex,
+						in faucibus lorem accumsan non. Donec mattis tincidunt metus. Morbi sed tortor a risus luctus dignissim.</p>
+					<div class="border"></div>
+				</div>
+			</div>
+			 /section title 
+			<div class="col-md-8 mx-auto">
+				<iframe src="https://player.vimeo.com/video/51119176" width="100%" height="360" frameborder="0"
+					webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+			</div>
+		</div>
+	</div>
+</section>
+-->
+
+
+	
+
+
+
+
+
+
+	<!-- Start Our Team
+		=========================================== -->
+<section class="team" id="team">
+	<div class="container">
+		<div class="row">
+
+			<!-- section title -->
+			<div class="col-12">
+				<div class="title text-center ">
+					<h2>Nuestro Equipo</h2>
+					<p>Conoce al talentoso equipo que trabaja con pasión y compromiso para hacer realidad nuestra visión.</p>
+					<div class="border"></div>
+				</div>
+			</div>
+			<!-- /section title -->
+
+			<!-- team member -->
+			<div class="col-md-3 col-sm-6 ">
+				<div class="team-member text-center">
+					<div class="member-photo">
+						<!-- member photo -->
+						<img class="img-fluid" src="images/team/member-3.jpg" alt="Meghna">
+						<!-- /member photo -->
+
+						
+						<!-- /member social profile -->
+					</div>
+
+					<!-- member name & designation -->
+					<div class="member-content">
+						<h3>Ricardo Anticona</h3>
+						<span>Gerente General</span>
+					</div>
+					<!-- /member name & designation -->
+
+				</div>
+			</div>
+			<!-- end team member -->
+
+			<!-- team member -->
+			<div class="col-md-3 col-sm-6 ">
+				<div class="team-member text-center">
+					<div class="member-photo">
+						<!-- member photo -->
+						<img class="img-fluid" src="images/team/member-3.jpg" alt="Meghna">
+						<!-- /member photo -->
+
+						
+						<!-- /member social profile -->
+					</div>
+
+					<!-- member name & designation -->
+					<div class="member-content">
+						<h3>Marta Salazar</h3>
+						<span>Administración</span>
+						
+					</div>
+					<!-- /member name & designation -->
+				</div>
+			</div>
+			<!-- end team member -->
+
+			<!-- team member -->
+			<div class="col-md-3 col-sm-6 ">
+				<div class="team-member text-center">
+					<div class="member-photo">
+						<!-- member photo -->
+						<img class="img-fluid" src="images/team/member-3.jpg" alt="Meghna">
+						<!-- /member photo -->
+
+						
+					</div>
+
+					<!-- member name & designation -->
+					<div class="member-content">
+						<h3>Cielo Claudio</h3>
+						<span>Diseño</span>
+						
+					</div>
+					<!-- /member name & designation -->
+
+				</div>
+			</div>
+			<!-- end team member -->
+
+			<!-- team member -->
+			<div class="col-md-3 col-sm-6 ">
+				<div class="team-member text-center">
+					<div class="member-photo">
+						<!-- member photo -->
+						<img class="img-fluid" src="images/team/member-3.jpg" alt="Meghna">
+						<!-- /member photo -->
+
+						
+					</div>
+
+					<!-- member name & designation -->
+					<div class="member-content">
+						<h3>Herman Villegas</h3>
+						<span>Soporte Técnico</span>
+						
+					</div>
+					<!-- /member name & designation -->
+
+				</div>
+			</div>
+			<!-- end team member -->
+		</div> <!-- End row -->
+	</div> <!-- End container -->
+</section> <!-- End section -->
+
+
+
+	
+
+<footer id="footer" class="bg-one">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="footer-about">
+          <h3>Tiflobraille</h3>
+          <p>Somos una empresa especializada en soluciones de accesibilidad para personas con discapacidad visual, comprometidos con la inclusión y la autonomía.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="footer-social">
+          <h3>Síguenos</h3>
+          <div class="social-icons">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="footer-contact">
+          <h3>Contacto</h3>
+          <p>Email: ventas@tiflobraperu.com</p>
+          <p>Teléfono: +51 1111111111</p>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+</footer>
+
+
+    <!-- end Footer Area
+    ========================================== -->
+<!-- Botón flotante de WhatsApp -->
+<a href="https://api.whatsapp.com/send?phone=51979783905&text=Hola%20Tiflobraille,%20estoy%20interesado%20en%20sus%20servicios%20de%20accesibilidad%20visual." 
+   class="whatsapp-float" target="_blank">
+	<i class="tf-ion-social-whatsapp-outline"></i>
+</a>
+
+    
+    <!-- 
+    Essential Scripts
+    =====================================-->
+    <!-- Main jQuery -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- Google Map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5nZKbeK-WHQ70oqOWo-_4VmwOwKP9YQ"></script>
+    <script  src="plugins/google-map/gmap.js"></script>
+
+    <!-- Form Validation -->
+    <script src="plugins/form-validation/jquery.form.js"></script> 
+    <script src="plugins/form-validation/jquery.validate.min.js"></script>
+    
+    <!-- Bootstrap4 -->
+    <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Parallax -->
+    <script src="plugins/parallax/jquery.parallax-1.1.3.js"></script>
+    <!-- lightbox -->
+    <script src="plugins/lightbox2/dist/js/lightbox.min.js"></script>
+    <!-- Owl Carousel -->
+    <script src="plugins/slick/slick.min.js"></script>
+    <!-- filter -->
+    <script src="plugins/filterizr/jquery.filterizr.min.js"></script>
+    <!-- Smooth Scroll js -->
+    <script src="plugins/smooth-scroll/smooth-scroll.min.js"></script>
+    
+    <!-- Custom js -->
+    <script src="js/script.js"></script>
+	<script src="js/accessibility.js"></script>
+
+	
+
+  </body>
+  </html>

@@ -1,0 +1,283 @@
+:root {
+    --naranja: #f0823c;
+    --azul: #3b4395;
+    --verde: #86bd3f;
+    
+    /* Variables para control de accesibilidad */
+    --text-color: #333;
+    --bg-color: #fff;
+    --link-color: var(--azul);
+    --heading-color: #222;
+    --zoom-level: 1;
+  }
+  
+  /* Estilos para el modo oscuro */
+  body.dark-mode {
+    --text-color: #f1f1f1;
+    --bg-color: #222;
+    --link-color: #86d0ff;
+    --heading-color: #fff;
+  }
+  
+  body {
+    transition: background-color 0.3s, color 0.3s;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+  
+  
+  body.dark-mode .sticky-header,
+  body.dark-mode .footer,
+  body.dark-mode .section {
+    background-color: #333;
+    color: var(--text-color);
+  }
+ 
+body.dark-mode .section,
+body.dark-mode .hero-slider,
+body.dark-mode .projects,
+body.dark-mode .call-to-action,
+body.dark-mode .clients,body.dark-mode .company-mission,
+body.dark-mode .about-shot-info,
+body.dark-mode .team-member,
+body.dark-mode .team,
+body.dark-mode .section-products,
+body.dark-mode .product-item,
+body.dark-mode .section-services,
+body.dark-mode .service-content,
+body.dark-mode .contact-us,
+body.dark-mode .contact-form,
+body.dark-mode .product-content{
+  background-color: #333;
+  color: #f1f1f1; /* Texto blanco */
+}
+body.dark-mode ::placeholder {
+  color: white !important;
+  opacity: 1; /* Firefox necesita esto */
+}
+body.dark-mode .contact-form:hover,body.dark-mode .service-item:hover,body.dark-mode .product-item:hover,
+body.dark-mode .team-member:hover,body.dark-mode .company-mission img:hover,body.dark-mode .client-logo:hover{
+  transform: translateY(-10px);
+  box-shadow: 0 5px 65px 0 rgba(245, 245, 245, 0.15);
+  -webkit-box-shadow: 0 5px 65px 0 rgba(245, 245, 245, 0.15);
+}
+
+/* Internet Explorer 10-11 - solo en modo oscuro */
+body.dark-mode :-ms-input-placeholder {
+  color: white !important;
+}
+
+/* Microsoft Edge - solo en modo oscuro */
+body.dark-mode ::-ms-input-placeholder {
+  color: white !important;
+}
+
+/* Webkit (Chrome, Safari, Opera, Brave) - solo en modo oscuro */
+body.dark-mode ::-webkit-input-placeholder {
+  color: white !important;
+}
+
+/* Asegurarse de que inputs específicos también respeten esto - solo en modo oscuro */
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+  color: white !important;
+}
+
+body.dark-mode input::-webkit-input-placeholder,
+body.dark-mode textarea::-webkit-input-placeholder {
+  color: white !important;
+}
+
+
+body.dark-mode p,
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode h3, 
+body.dark-mode h4,
+body.dark-mode span,
+body.dark-mode div,
+body.dark-mode a,
+body.dark-mode button,
+body.dark-mode label {
+  color: #ffffff !important; /* Usando !important para sobreescribir otros estilos */
+}
+body.dark-mode .project-item {
+    background-color: #333 !important;
+  }
+  
+  body.dark-mode .project-content {
+    background-color: #333 !important;
+  }
+  
+  body.dark-mode .member-content {
+    background-color: #444 !important;
+}
+  
+  /* Aplicar zoom a todo el contenido */
+  body.zoom-level-1 {
+    --zoom-level: 1.1;
+  }
+  body.zoom-level-2 {
+    --zoom-level: 1.25;
+  }
+  body.zoom-level-3 {
+    --zoom-level: 1.5;
+  }
+  
+  body[class*="zoom-level"] #content-wrapper {
+    transform: scale(var(--zoom-level));
+    transform-origin: top center;
+  }
+  
+  /* Espaciado de texto aumentado */
+  body.spaced-text p, 
+  body.spaced-text li, 
+  body.spaced-text h1, 
+  body.spaced-text h2, 
+  body.spaced-text h3, 
+  body.spaced-text h4 {
+    line-height: 2;
+    letter-spacing: 1px;
+    word-spacing: 3px;
+  }
+  
+  /* Enlaces destacados */
+  body.highlight-links a {
+    background-color: #ffff0033;
+    border-bottom: 2px solid var(--naranja);
+    padding: 0 2px;
+    transition: background-color 0.3s;
+  }
+  
+  body.highlight-links a:hover {
+    background-color: #ffff0066;
+  }
+  
+  /* Cursor grande */
+  body.big-cursor,
+  body.big-cursor * {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="%23f0823c" stroke="white" stroke-width="1"/></svg>') 16 16, auto !important;
+  }
+  
+  /* Barra de accesibilidad */
+  .accessibility-toolbar {
+    position: fixed;
+    top: 20%;
+    right: 1px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    border: none; /* Cambio: eliminar el borde por defecto */
+    overflow: hidden;
+    max-width: 300px;
+}
+
+/* Añadir esto: mostrar el borde solo cuando está abierto */
+.accessibility-toolbar.open {
+    border: 1px solid var(--verde);
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+.accessibility-toolbar:not(.open) {
+    background-color: transparent;
+    box-shadow: none;
+    min-width: 46px; /* Asegurar espacio suficiente para el botón */
+    width: 46px;
+    height: 46px;
+    padding: 0;
+    border: none;
+} 
+.accessibility-toolbar-toggle {
+    width: 40px;
+    height: 40px;
+    background-color: var(--verde);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1001;
+    color: white;
+    font-size: 20px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+  .accessibility-toolbar-content {
+    padding: 15px;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .accessibility-toolbar.open .accessibility-toolbar-content {
+    opacity: 1;
+    max-height: 500px;
+    overflow-y: auto;
+  }
+  
+  .accessibility-option {
+    margin: 15px 0;
+  }
+  
+  .accessibility-option label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--text-color);
+  }
+  
+  .accessibility-toolbar button {
+    background-color: var(--azul);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    margin-right: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .accessibility-toolbar button:hover {
+    background-color: var(--naranja);
+  }
+  
+  .accessibility-toolbar button.active {
+    background-color: var(--naranja);
+  }
+  
+  #resetAccessibility {
+    background-color: var(--naranja);
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  /* Modo oscuro para la barra de herramientas */
+  body.dark-mode .accessibility-toolbar {
+    background-color: #333;
+    border-color: var(--verde);
+  }
+  
+  body.dark-mode .accessibility-toolbar h3,
+  body.dark-mode .accessibility-toolbar label {
+    color: #fff;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .accessibility-toolbar {
+      top: 15%;
+      bottom: 20px;
+      right: 20px;
+      max-width: 250px;
+    }
+    
+    .accessibility-toolbar-toggle {
+      right: 5px;
+      top: 5px;
+    }
+  }
