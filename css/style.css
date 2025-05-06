@@ -3907,3 +3907,51 @@ section.section-services h2, section#contact.contact-us h2{
 }
 
 
+/* validacion de contact-form */
+
+/* Estilos para el formulario de contacto */
+.form-group {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.form-control.is-invalid {
+  border-color: #dc3545;
+  padding-right: calc(1.5em + 0.75rem);
+  background-repeat: no-repeat;
+  background-position: right calc(0.375em + 0.1875rem) center;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+.invalid-feedback {
+  display: block;
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 80%;
+  color: #dc3545;
+}
+
+/* Estilos para el modal */
+#responseModal .modal-header.bg-success {
+  background-color: #28a745;
+}
+
+#responseModal .modal-header.bg-danger {
+  background-color: #dc3545;
+}
+
+#responseModal .modal-title {
+  font-weight: 600;
+}
+
+/* Animación del botón de envío */
+#contact-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Mejoras de accesibilidad */
+.form-control:focus {
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
