@@ -2890,204 +2890,8 @@ body.modal-open #footer {
   display: none !important; /* Ocultar completamente el footer */
 }
 
- /* Soporte Técnico */
- .support-header {
-  background-image: url("../images/about/about-header.jpg");
-padding: 80px 0;
-background-size: cover;
-padding: 140px 0 70px;
-text-align: center;
-color: #fff;
-position: relative;
-margin-bottom: 50px;
-}
-.support-header:before {
-  background: rgba(0, 0, 0, 0.5);
-  position: absolute;
-  content: '';
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-}
+ 
 
-.support-header h2 {
-font-size: 2.5rem;
-margin-bottom: 20px;
-}
-
-.support-header p {
-font-size: 1.2rem;
-max-width: 800px;
-margin: 0 auto;
-}
-
-.support-card {
-background: white;
-border-radius: 10px;
-box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-overflow: hidden;
-margin-bottom: 40px;
-display: flex;
-flex-direction: column;
-height: 100%;
-transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.support-card:hover {
-transform: translateY(-5px);
-box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-}
-
-.support-card-image {
-position: relative;
-height: 200px;
-overflow: hidden;
-}
-
-.support-card-image img {
-width: 100%;
-height: 100%;
-object-fit: cover;
-transition: transform 0.5s ease;
-}
-
-.support-card:hover .support-card-image img {
-transform: scale(1.1);
-}
-
-.support-card-content {
-padding: 25px;
-flex-grow: 1;
-display: flex;
-flex-direction: column;
-}
-
-.support-card-title {
-color: var(--azul);
-font-size: 1.5rem;
-margin-bottom: 15px;
-font-weight: 600;
-}
-
-.support-card-text {
-color: #616161;
-margin-bottom: 20px;
-flex-grow: 1;
-}
-
-.support-features {
-margin-bottom: 20px;
-}
-
-.support-feature-item {
-display: flex;
-align-items: baseline;
-margin-bottom: 10px;
-}
-
-.support-feature-item i {
-color: var(--verde);
-margin-right: 10px;
-}
-
-.support-card-button {
-background-color: var(--azul);
-color: white;
-border: none;
-padding: 10px 20px;
-border-radius: 5px;
-font-weight: 500;
-transition: background-color 0.3s;
-text-align: center;
-text-decoration: none;
-display: inline-block;
-}
-
-.support-card-button:hover {
-background-color: var(--naranja);
-color: white;
-text-decoration: none;
-}
-
-.support-info-section {
-background-color: #f9f9f9;
-padding: 60px 0;
-margin: 50px 0;
-}
-
-.support-info-icon {
-font-size: 3rem;
-color: var(--naranja);
-margin-bottom: 20px;
-}
-
-.support-info-title {
-color: var(--azul);
-font-size: 1.5rem;
-margin-bottom: 15px;
-font-weight: 600;
-}
-
-.support-info-text {
-color: #616161;
-}
-
-.support-cta {
-background-image: url("../images/support/impresora.jpg");
-background-size: cover;
-background-position: center;
-padding: 60px 0;
-color: white;
-text-align: center;
-margin-top: 40px;
-position: relative;
-}
-
-/* El pseudo-elemento que crea el overlay oscuro */
-.support-cta::before {
-content: "";
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-background-color: rgba(0, 0, 0, 0.6); /* Negro con 60% de opacidad */
-z-index: 0; /* Coloca el overlay detrás del contenido */
-}
-
-/* Asegura que el contenedor y su contenido estén por encima del overlay */
-.support-cta .container {
-position: relative;
-z-index: 1; /* Coloca el contenido por encima del overlay */
-}
-
-
-
-.support-cta h3 {
-font-size: 2rem;
-margin-bottom: 20px;
-}
-
-.support-cta-button {
-background-color: white;
-color: var(--azul);
-border: none;
-padding: 12px 30px;
-border-radius: 5px;
-font-weight: 600;
-font-size: 1.1rem;
-transition: all 0.3s;
-text-decoration: none;
-display: inline-block;
-margin-top: 20px;
-}
-
-.support-cta-button:hover {
-background-color: var(--naranja);
-color: white;
-transform: scale(1.05);
-}
 
 
 /* Contact section styling */
@@ -3955,3 +3759,117 @@ section.section-services h2, section#contact.contact-us h2{
   border-color: #80bdff;
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
+
+   /* Variables CSS */
+   :root {
+    --naranja: #f0823c;
+    --azul: #3b4395;
+    --verde: #86bd3f;
+  }
+
+  /* Servicios */
+  .section-services {
+    background-color: #f9f9f9;
+    padding: 80px 0;
+  }
+
+  .service-item {
+    margin-bottom: 30px;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  }
+
+  .service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
+
+  .service-thumb {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-thumb img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .service-item:hover .service-thumb img {
+    transform: scale(1.05);
+  }
+
+  .service-content {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .service-content h4 {
+    color: var(--azul);
+    font-weight: 600;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+  }
+
+  .service-item:hover .service-content h4 {
+    color: var(--naranja);
+  }
+
+  .service-filter {
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  .service-filter .btn {
+    margin: 5px;
+    padding: 8px 20px;
+    border-radius: 20px;
+    background-color: transparent;
+    color: var(--azul);
+    border: 2px solid var(--azul);
+    transition: all 0.3s ease;
+    font-weight: 500;
+  }
+
+  .service-filter .btn.active, .service-filter .btn:hover {
+    background-color: var(--verde);
+    color: white;
+    border-color: var(--verde);
+  }
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .section-title h2 {
+    color: var(--azul);
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+
+  .section-title h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px; /* Extended width */
+    height: 4px;
+    background-color: var(--naranja);
+  }
+
+  .section-title p {
+    color: #6c757d;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .single-page-header h2{
+    font-size: 36px;
+  }
