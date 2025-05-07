@@ -47,9 +47,25 @@ body.dark-mode .section-services,
 body.dark-mode .service-content,
 body.dark-mode .contact-us,
 body.dark-mode .contact-form,
-body.dark-mode .product-content{
+body.dark-mode .product-content,
+body.dark-mode .support-category,
+body.dark-mode .software-section,
+body.dark-mode .support-card ,
+body.dark-mode .modal-content
+{
   background-color: #333;
   color: #f1f1f1; /* Texto blanco */
+}
+
+body.dark-mode .specs
+{
+  background-color: #2c2b2b;
+  color: #f1f1f1; /* Texto blanco */
+}
+
+body.dark-mode .software-section {
+  background: #333 !important;
+  color: #f1f1f1;
 }
 body.dark-mode ::placeholder {
   color: white !important;
@@ -98,7 +114,9 @@ body.dark-mode span,
 body.dark-mode div,
 body.dark-mode a,
 body.dark-mode button,
-body.dark-mode label {
+body.dark-mode label,
+body.dark-mode li
+ {
   color: #ffffff !important; /* Usando !important para sobreescribir otros estilos */
 }
 body.dark-mode .project-item {
