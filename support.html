@@ -35,335 +35,12 @@
   <link rel="stylesheet" href="plugins/slick/slick.css">
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="css/style.css">  
+  <link rel="stylesheet" href="css/accessibility.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <style>
    /* Categorías */
 
 
-   :root {
-      --naranja: #f0823c;
-      --naranja-claro: #ffeee2;
-      --azul: #3b4395;
-      --azul-claro: #eceef9;
-      --verde: #86bd3f;
-      --verde-claro: #f0f7e6;
-      --blanco: #ffffff;
-      --gris-claro: #f8f9fa;
-      --gris-medio: #e9ecef;
-      --texto: #333;
-      --texto-secundario: #666;
-      --sombra-suave: 0 10px 30px rgba(0, 0, 0, 0.05);
-      --transicion: all 0.3s ease;
-      --radio: 12px;
-    }
-    
-   
-   .support-category {
-      padding: 50px 0;
-      position: relative;
-    }
-    
-    .support-category:nth-child(even) {
-      background-color: var(--gris-claro);
-    }
-    
-    .support-category::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 100 100"><rect fill="none" width="100" height="100"/><circle fill="rgba(59,67,149,0.03)" cx="50" cy="50" r="25"/></svg>');
-      opacity: 0.3;
-      pointer-events: none;
-    }
-    
-  
-  
-   
-  
-    
-    /* Cards */
-    .card-wrapper {
-      height: 100%;
-      padding: 15px 0;
-    }
-    
-    .support-card {
-      background-color: var(--blanco);
-      border-radius: var(--radio);
-      overflow: hidden;
-      box-shadow: var(--sombra-suave);
-      transition: var(--transicion);
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-     
-      position: relative;
-    }
-    
-    .support-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-      border-top-color: var(--naranja);
-    }
- 
-    
-    .support-card:hover::before {
-      height: 100%;
-      opacity: 0.03;
-    }
-    
-    .support-card-image {
-      height: 180px;
-      position: relative;
-      overflow: hidden;
-      background: var(--gris-claro);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .support-card-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: var(--transicion);
-    }
-    
-    .support-card:hover .support-card-image img {
-      transform: scale(1.05);
-    }
-    
-    .support-card-content {
-      padding: 25px;
-      position: relative;
-      z-index: 1;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    
-    .support-card-title {
-      font-size: 20px;
-      font-weight: 600;
-      color: var(--azul);
-      margin-bottom: 15px;
-      transition: var(--transicion);
-    }
-    
-    .support-card:hover .support-card-title {
-      color: var(--naranja);
-    }
-    
-    .support-card-text {
-      color: var(--texto-secundario);
-      margin-bottom: 20px;
-      line-height: 1.7;
-    }
-    
-    .support-features {
-      margin-bottom: 20px;
-      flex-grow: 1;
-    }
-    
-    .support-feature-item {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 10px;
-    }
-    
-    .support-feature-item i {
-      color: var(--verde);
-      margin-right: 10px;
-      font-size: 14px;
-      margin-top: 5px;
-    }
-    
-    .support-feature-item span {
-      color: var(--texto-secundario);
-    }
-    
-    .support-card-button {
-      display: inline-block;
-      padding: 10px 25px;
-      background-color: var(--naranja);
-      color: var(--blanco);
-      border-radius: 50px;
-      font-weight: 500;
-      text-decoration: none;
-      transition: var(--transicion);
-      align-self: flex-start;
-      margin-top: auto;
-      border: none;
-      cursor: pointer;
-      font-size: 15px;
-    }
-    
-    .support-card-button:hover {
-      background-color: var(--azul);
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(240, 130, 60, 0.2);
-    }
-    
-    /* Software Cards */
-    .software-section {
-      padding: 90px 0;
-      background: linear-gradient(180deg, var(--blanco) 0%, var(--gris-claro) 100%);
-      position: relative;
-    }
-    
-    .software-card {
-      background-color: var(--blanco);
-      border-radius: var(--radio);
-      padding: 30px;
-    
-      box-shadow: var(--sombra-suave);
-      transition: var(--transicion);
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    
-      position: relative;
-      overflow: hidden;
-    }
-    
-   
-    
-    .software-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-      border-bottom-color: var(--azul);
-    }
-    
-    .software-card:hover::before {
-      height: 100%;
-      opacity: 0.1;
-    }
-    
-    .software-icon {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto 25px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: var(--azul-claro);
-      color: var(--azul);
-      font-size: 32px;
-      border-radius: 50%;
-      transition: var(--transicion);
-      position: relative;
-      z-index: 1;
-    }
-    
-    .software-card:hover .software-icon {
-      background-color: var(--azul);
-      color: var(--blanco);
-      transform: rotateY(180deg);
-    }
-    
-    .support-card-title {
-      position: relative;
-      z-index: 1;
-    }
-    
-    .support-card-text, .support-features, .support-feature-item {
-      position: relative;
-      z-index: 1;
-    }
-    
-    /* Perkins Section */
-    .perkins-section {
-      background: linear-gradient(180deg, var(--blanco) 0%, var(--gris-claro) 100%);
-      position: relative;
-    }
-    
-    .perkins-section .support-card {
-      border-left: 3px solid var(--azul);
-      border-top: none;
-    }
-    
-    .perkins-section .support-card:hover {
-      border-left-color: var(--naranja);
-    }
-    
-    /* Responsive */
-    @media (max-width: 991px) {
-      .support-header {
-        padding: 130px 0 60px;
-      }
-      
-      .support-header h2 {
-        font-size: 36px;
-      }
-      
-      .category-title h2 {
-        font-size: 30px;
-      }
-      
-      .support-category {
-        padding: 70px 0;
-      }
-    }
-    
-    @media (max-width: 767px) {
-      .support-header {
-        padding: 120px 0 50px;
-      }
-      
-      .support-header h2 {
-        font-size: 30px;
-      }
-      
-      .support-card-image {
-        height: 160px;
-      }
-      
-      .software-icon {
-        width: 70px;
-        height: 70px;
-        font-size: 28px;
-      }
-    }
-  /* Estilo actualizado para las imágenes de software */
-  .software-icon {
-      width: 100%;
-      max-width: 120px;
-      margin: 0 auto 25px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: transparent;
-      transition: var(--transicion);
-      position: relative;
-      z-index: 1;
-   }
-   
-   .software-image {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      transition: var(--transicion);
-      box-shadow: var(--sombra-suave);
-   }
-   
-   .software-card:hover .software-icon img {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-   }
-   
-   /* Ajuste adicional para contenido */
-   .support-card-title {
-      text-align: center;
-      margin-top: 0;
-   }
-   
-   .support-card-text {
-      text-align: center;
-      margin-bottom: 25px;
-   }
 </style>
   <!-- Estilos específicos para Soporte Técnico -->
 
@@ -371,6 +48,41 @@
 </head>
 
 <body id="body">
+
+  
+  <!-- Barra de accesibilidad - Reemplaza el div existente con este código -->
+<div class="accessibility-toolbar" id="accessibilityToolbar">
+	<button class="accessibility-toolbar-toggle" id="accessibilityToggle" aria-label="Abrir herramientas de accesibilidad">
+	  <i class="tf-ion-eye"></i>
+	</button>
+	<div class="accessibility-toolbar-content">
+	  <h3>Opciones de Accesibilidad</h3>
+	  
+	  <div class="accessibility-option">
+		<label>Contraste</label>
+		<button id="darkModeToggle" aria-pressed="false">Modo Oscuro</button>
+	  </div>
+	  
+	  <div class="accessibility-option">
+		<label>Tamaño del Texto</label>
+		<button id="decreaseText" aria-label="Tamaño normal de texto">A</button>
+		<button id="normalText" aria-label="Aumentar tamaño del texto">A+</button>
+		<button id="increaseText" aria-label="Gran tamaño de texto">A++</button>
+	  </div>
+	  
+	  <div class="accessibility-option">
+		<label>Otras Opciones</label>
+		<button id="highlightLinks" aria-pressed="false">Resaltar Enlaces</button>
+		<button id="spacedText" aria-pressed="false">Espaciar Texto</button>
+		<button id="bigCursor" aria-pressed="false">Cursor Grande</button>
+	  </div>
+	  
+	  <div class="accessibility-option">
+		<button id="resetAccessibility" aria-label="Restablecer todas las opciones de accesibilidad">Restablecer Todo</button>
+	  </div>
+	</div>
+  </div>
+
 
   <!-- Preloader -->
    <div id="preloader">
@@ -905,6 +617,7 @@ Essential Scripts
 
 <!-- Custom js -->
 <script src="js/script.js"></script>
+<script src="js/accessibility.js"></script>
 
 </body>
 </html>
