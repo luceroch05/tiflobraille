@@ -36,7 +36,335 @@
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="css/style.css">  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+   /* Categorías */
 
+
+   :root {
+      --naranja: #f0823c;
+      --naranja-claro: #ffeee2;
+      --azul: #3b4395;
+      --azul-claro: #eceef9;
+      --verde: #86bd3f;
+      --verde-claro: #f0f7e6;
+      --blanco: #ffffff;
+      --gris-claro: #f8f9fa;
+      --gris-medio: #e9ecef;
+      --texto: #333;
+      --texto-secundario: #666;
+      --sombra-suave: 0 10px 30px rgba(0, 0, 0, 0.05);
+      --transicion: all 0.3s ease;
+      --radio: 12px;
+    }
+    
+   
+   .support-category {
+      padding: 50px 0;
+      position: relative;
+    }
+    
+    .support-category:nth-child(even) {
+      background-color: var(--gris-claro);
+    }
+    
+    .support-category::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 100 100"><rect fill="none" width="100" height="100"/><circle fill="rgba(59,67,149,0.03)" cx="50" cy="50" r="25"/></svg>');
+      opacity: 0.3;
+      pointer-events: none;
+    }
+    
+  
+  
+   
+  
+    
+    /* Cards */
+    .card-wrapper {
+      height: 100%;
+      padding: 15px 0;
+    }
+    
+    .support-card {
+      background-color: var(--blanco);
+      border-radius: var(--radio);
+      overflow: hidden;
+      box-shadow: var(--sombra-suave);
+      transition: var(--transicion);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+     
+      position: relative;
+    }
+    
+    .support-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      border-top-color: var(--naranja);
+    }
+ 
+    
+    .support-card:hover::before {
+      height: 100%;
+      opacity: 0.03;
+    }
+    
+    .support-card-image {
+      height: 180px;
+      position: relative;
+      overflow: hidden;
+      background: var(--gris-claro);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .support-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transicion);
+    }
+    
+    .support-card:hover .support-card-image img {
+      transform: scale(1.05);
+    }
+    
+    .support-card-content {
+      padding: 25px;
+      position: relative;
+      z-index: 1;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .support-card-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--azul);
+      margin-bottom: 15px;
+      transition: var(--transicion);
+    }
+    
+    .support-card:hover .support-card-title {
+      color: var(--naranja);
+    }
+    
+    .support-card-text {
+      color: var(--texto-secundario);
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+    
+    .support-features {
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+    
+    .support-feature-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+    
+    .support-feature-item i {
+      color: var(--verde);
+      margin-right: 10px;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+    
+    .support-feature-item span {
+      color: var(--texto-secundario);
+    }
+    
+    .support-card-button {
+      display: inline-block;
+      padding: 10px 25px;
+      background-color: var(--naranja);
+      color: var(--blanco);
+      border-radius: 50px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: var(--transicion);
+      align-self: flex-start;
+      margin-top: auto;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+    }
+    
+    .support-card-button:hover {
+      background-color: var(--azul);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(240, 130, 60, 0.2);
+    }
+    
+    /* Software Cards */
+    .software-section {
+      padding: 90px 0;
+      background: linear-gradient(180deg, var(--blanco) 0%, var(--gris-claro) 100%);
+      position: relative;
+    }
+    
+    .software-card {
+      background-color: var(--blanco);
+      border-radius: var(--radio);
+      padding: 30px;
+    
+      box-shadow: var(--sombra-suave);
+      transition: var(--transicion);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    
+      position: relative;
+      overflow: hidden;
+    }
+    
+   
+    
+    .software-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+      border-bottom-color: var(--azul);
+    }
+    
+    .software-card:hover::before {
+      height: 100%;
+      opacity: 0.1;
+    }
+    
+    .software-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--azul-claro);
+      color: var(--azul);
+      font-size: 32px;
+      border-radius: 50%;
+      transition: var(--transicion);
+      position: relative;
+      z-index: 1;
+    }
+    
+    .software-card:hover .software-icon {
+      background-color: var(--azul);
+      color: var(--blanco);
+      transform: rotateY(180deg);
+    }
+    
+    .support-card-title {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .support-card-text, .support-features, .support-feature-item {
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Perkins Section */
+    .perkins-section {
+      background: linear-gradient(180deg, var(--blanco) 0%, var(--gris-claro) 100%);
+      position: relative;
+    }
+    
+    .perkins-section .support-card {
+      border-left: 3px solid var(--azul);
+      border-top: none;
+    }
+    
+    .perkins-section .support-card:hover {
+      border-left-color: var(--naranja);
+    }
+    
+    /* Responsive */
+    @media (max-width: 991px) {
+      .support-header {
+        padding: 130px 0 60px;
+      }
+      
+      .support-header h2 {
+        font-size: 36px;
+      }
+      
+      .category-title h2 {
+        font-size: 30px;
+      }
+      
+      .support-category {
+        padding: 70px 0;
+      }
+    }
+    
+    @media (max-width: 767px) {
+      .support-header {
+        padding: 120px 0 50px;
+      }
+      
+      .support-header h2 {
+        font-size: 30px;
+      }
+      
+      .support-card-image {
+        height: 160px;
+      }
+      
+      .software-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 28px;
+      }
+    }
+  /* Estilo actualizado para las imágenes de software */
+  .software-icon {
+      width: 100%;
+      max-width: 120px;
+      margin: 0 auto 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: transparent;
+      transition: var(--transicion);
+      position: relative;
+      z-index: 1;
+   }
+   
+   .software-image {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      transition: var(--transicion);
+      box-shadow: var(--sombra-suave);
+   }
+   
+   .software-card:hover .software-icon img {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+   }
+   
+   /* Ajuste adicional para contenido */
+   .support-card-title {
+      text-align: center;
+      margin-top: 0;
+   }
+   
+   .support-card-text {
+      text-align: center;
+      margin-bottom: 25px;
+   }
+</style>
   <!-- Estilos específicos para Soporte Técnico -->
 
 
@@ -44,255 +372,474 @@
 
 <body id="body">
 
- <!--
-  Start Preloader
-  ==================================== -->
-  <div id="preloader">
-    <div class='preloader'>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </div> 
-  <!--
-  End Preloader
-  ==================================== -->
-
-
-  
-
-<!--
-Fixed Navigation
-==================================== -->
-<header class="navigation fixed-top">
-  <div class="container">
-    <!-- main nav -->
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <!-- logo -->
-      <a class="navbar-brand logo" href="index.html">
-       
-      </a>
-      <!-- /logo -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
-        aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navigation">
-        <ul class="navbar-nav ml-auto text-center">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">Nosotros</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="product.html">Productos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="service.html">Servicios</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="support.html">Soporte Técnico</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contacto</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <!-- /main nav -->
-  </div>
-</header>
-<!--
-End Fixed Navigation
-==================================== -->
-
-<!-- 
-  INICIO DE SECCIÓN DE SOPORTE TÉCNICO
-  ====================================== -->
-
-<!-- Header de Soporte Técnico -->
-
-<section class="support-header">
+  <!-- Preloader -->
+   <div id="preloader">
+     <div class='preloader'>
+       <span></span>
+       <span></span>
+       <span></span>
+       <span></span>
+       <span></span>
+       <span></span>
+     </div>
+   </div> 
+ 
+ <!-- Navegación -->
+ <header class="navigation fixed-top">
+   <div class="container">
+     <!-- main nav -->
+     <nav class="navbar navbar-expand-lg navbar-light">
+       <!-- logo -->
+       <a class="navbar-brand logo" href="index.html">
+         <!-- Logo aquí -->
+       </a>
+       <!-- /logo -->
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+         aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+       </button>
+ 
+       <div class="collapse navbar-collapse" id="navigation">
+         <ul class="navbar-nav ml-auto text-center">
+           <li class="nav-item">
+             <a class="nav-link" href="index.html">Inicio</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="about.html">Nosotros</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="product.html">Productos</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="service.html">Servicios</a>
+           </li>
+           <li class="nav-item active">
+             <a class="nav-link" href="support.html">Soporte Técnico</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="contact.html">Contacto</a>
+           </li>
+         </ul>
+       </div>
+     </nav>
+     <!-- /main nav -->
+   </div>
+ </header>
+ 
+ <section class="single-page-header">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-                <h2>Soporte Técnico Especializado</h2>
-                <p>Contamos con técnicos calificados para brindar mantenimiento y reparación profesional a sus equipos Braille, garantizando un servicio de calidad y respaldo técnico permanente.</p>
-            
+				<h2>Soporte Técnico</h2>
+				
 			</div>
 		</div>
 	</div>
 </section>
 
-
-<!-- Sección de Tarjetas de Soporte -->
-<section>
-  <div class="container">
-    <div class="row">
-      <!-- Impresora Braille Irie -->
-      <div class="col-md-6 col-lg-3 mb-4">
-        <div class="support-card">
-          <div class="support-card-image">
-            <img src="images/support/irie-braille.jpg" alt="Impresora Braille Irie">
-          </div>
-          <div class="support-card-content">
-            <h3 class="support-card-title">Impresoras Braille Irie</h3>
-            <p class="support-card-text">Servicio técnico oficial para impresoras Braille Irie con garantía y repuestos originales.</p>
-            <div class="support-features">
-              <div class="support-feature-item">
-                <i class="fas fa-check-circle"></i>
-                <span>Diagnóstico completo</span>
-              </div>
-              <div class="support-feature-item">
-                <i class="fas fa-check-circle"></i>
-                <span>Repuestos originales</span>
-              </div>
-              <div class="support-feature-item">
-                <i class="fas fa-check-circle"></i>
-                <span>Actualización de firmware</span>
-              </div>
-            </div>
-            <a href="#contacto" class="support-card-button">Solicitar Soporte</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Index Braille -->
-      <div class="col-md-6 col-lg-3 mb-4">
-        <div class="support-card">
-          <div class="support-card-image">
-            <img src="images/support/index-braille.jpg" alt="Impresora Index Braille">
-          </div>
-          <div class="support-card-content">
-            <h3 class="support-card-title">Index Braille</h3>
-            <p class="support-card-text">Servicio técnico especializado para toda la gama de impresoras Index Braille.</p>
-            <div class="support-features">
-              <div class="support-feature-item">
-                <i class="fas fa-check-circle"></i>
-                <span>Reparación profesional</span>
-              </div>
-              <div class="support-feature-item">
-                <i class="fas fa-check-circle"></i>
-                <span>Mantenimiento preventivo</span>
-              </div>
-              <div class="support-feature-item">
-                <i class="fas fa-check-circle"></i>
-                <span>Configuración avanzada</span>
-              </div>
-            </div>
-            <a href="#contacto" class="support-card-button">Solicitar Soporte</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Máquinas Perkins Mecánicas -->
-      <div class="col-md-6 col-lg-3 mb-4">
-        <div class="support-card">
-          <div class="support-card-image">
-            <img src="images/support/perkins-mecanica.jpg" alt="Máquina Perkins Mecánica">
-          </div>
-          <div class="support-card-content">
-            <h3 class="support-card-title">Perkins Mecánicas</h3>
-            <p class="support-card-text">Servicio de reparación y mantenimiento de máquinas Perkins mecánicas tradicionales.</p>
-            <div class="support-features">
-              <div class="support-feature-item">
-                <i class="fas fa-check-circle"></i>
-                <span>Restauración completa</span>
-              </div>
-              <div class="support-feature-item">
-                <i class="fas fa-check-circle"></i>
-                <span>Limpieza profunda</span>
-              </div>
-              <div class="support-feature-item">
-                <i class="fas fa-check-circle"></i>
-                <span>Ajuste de precisión</span>
-              </div>
-            </div>
-            <a href="#contacto" class="support-card-button">Solicitar Soporte</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Máquinas Perkins Electrónicas -->
-      <div class="col-md-6 col-lg-3 mb-4">
-        <div class="support-card">
-          <div class="support-card-image">
-            <img src="images/support/perkins-electronica.jpg" alt="Máquina Perkins Electrónica">
-          </div>
-          <div class="support-card-content">
-            <h3 class="support-card-title">Perkins Electrónicas</h3>
-            <p class="support-card-text">Diagnóstico y reparación especializada para máquinas Perkins con componentes electrónicos.</p>
-            <div class="support-features">
-              <div class="support-feature-item">
-                <i class="fas fa-check-circle"></i>
-                <span>Reparación de circuitos</span>
-              </div>
-              <div class="support-feature-item">
-                <i class="fas fa-check-circle"></i>
-                <span>Actualización de software</span>
-              </div>
-              <div class="support-feature-item">
-                <i class="fas fa-check-circle"></i>
-                <span>Reemplazo de componentes</span>
-              </div>
-            </div>
-            <a href="#contacto" class="support-card-button">Solicitar Soporte</a>
-          </div>
-        </div>
+ 
+ <!-- Sección de Impresoras Braille -->
+ <section class="support-category">
+   <div class="container">
+   <div class="row">
+    <div class="col-md-12 mb-4">
+      <div class="title text-center ">
+        <h2>Impresoras Braille</h2>
+        <p>Ofrecemos soporte técnico especializado para las principales marcas de impresoras braille del mercado, con técnicos certificados y repuestos originales.</p>
+        <div class="border"></div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- Sección de Información adicional -->
-<section class="support-info-section">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 text-center mb-4 mb-md-0">
-        <div class="support-info-icon">
-          <i class="fas fa-tools"></i>
-        </div>
-        <h3 class="support-info-title">Diagnóstico Profesional</h3>
-        <p class="support-info-text">Realizamos un diagnóstico completo y preciso para identificar la causa raíz de cualquier problema en su equipo.</p>
-      </div>
-      <div class="col-md-4 text-center mb-4 mb-md-0">
-        <div class="support-info-icon">
-          <i class="fas fa-certificate"></i>
-        </div>
-        <h3 class="support-info-title">Técnicos Certificados</h3>
-        <p class="support-info-text">Nuestro equipo está certificado y en constante capacitación para brindar el mejor servicio técnico.</p>
-      </div>
-      <div class="col-md-4 text-center">
-        <div class="support-info-icon">
-          <i class="fas fa-history"></i>
-        </div>
-        <h3 class="support-info-title">Garantía de Servicio</h3>
-        <p class="support-info-text">Todos nuestros servicios de reparación y mantenimiento cuentan con garantía de calidad.</p>
-      </div>
     </div>
-  </div>
-</section>
-
-
-
-<!-- Sección de Call to Action -->
-<section class="support-cta">
-  <div class="container">
+     
+     <div class="row d-flex justify-content-center">
+      
+       <!-- Index Braille -->
+       <div class="col-md-6 col-lg-3 mb-4 d-flex justify-content-center">
+         <div class="support-card">
+           <div class="support-card-image">
+             <img src="images/support/index.jpg" alt="Impresora Index Braille">
+           </div>
+           <div class="support-card-content">
+             <h3 class="support-card-title">Index Braille</h3>
+             <p class="support-card-text">Servicio técnico oficial para toda la gama de impresoras Index Braille con soporte directo de fábrica.</p>
+             <div class="support-features">
+               <div class="support-feature-item">
+                 <i class="fas fa-check-circle"></i>
+                 <span>Repuestos originales</span>
+               </div>
+               <div class="support-feature-item">
+                 <i class="fas fa-check-circle"></i>
+                 <span>Actualización de firmware</span>
+               </div>
+               <div class="support-feature-item">
+                 <i class="fas fa-check-circle"></i>
+                 <span>Mantenimiento preventivo</span>
+               </div>
+             </div>
+             <a href="contact.html" class="support-card-button">Solicitar Soporte</a>
+           </div>
+         </div>
+       </div>
+ 
+       <!-- Irie -->
+       <div class="col-md-6 col-lg-3 mb-4 d-flex justify-content-center">
+         <div class="support-card">
+           <div class="support-card-image">
+             <img src="images/support/irie.png" alt="Impresora Braille Irie">
+           </div>
+           <div class="support-card-content">
+             <h3 class="support-card-title">Irie</h3>
+             <p class="support-card-text">Servicio técnico especializado para impresoras Irie con diagnóstico profesional y precisión.</p>
+             <div class="support-features">
+               <div class="support-feature-item">
+                 <i class="fas fa-check-circle"></i>
+                 <span>Diagnóstico avanzado</span>
+               </div>
+               <div class="support-feature-item">
+                 <i class="fas fa-check-circle"></i>
+                 <span>Reparación de componentes</span>
+               </div>
+               <div class="support-feature-item">
+                 <i class="fas fa-check-circle"></i>
+                 <span>Calibración profesional</span>
+               </div>
+             </div>
+             <a href="contact.html" class="support-card-button">Solicitar Soporte</a>
+           </div>
+         </div>
+       </div>
+ 
+       <!-- American Thermoform -->
+       <div class="col-md-6 col-lg-3 mb-4 d-flex justify-content-center">
+         <div class="support-card">
+           <div class="support-card-image">
+             <img src="images/support/themo.jpg" alt="Impresora American Thermoform">
+           </div>
+           <div class="support-card-content">
+             <h3 class="support-card-title">American Thermoform</h3>
+             <p class="support-card-text">Servicio técnico para equipos de termoformado y equipos American Thermoform.</p>
+             <div class="support-features">
+               <div class="support-feature-item">
+                 <i class="fas fa-check-circle"></i>
+                 <span>Mantenimiento especializado</span>
+               </div>
+               <div class="support-feature-item">
+                 <i class="fas fa-check-circle"></i>
+                 <span>Reemplazo de piezas</span>
+               </div>
+               <div class="support-feature-item">
+                 <i class="fas fa-check-circle"></i>
+                 <span>Ajuste de parámetros</span>
+               </div>
+             </div>
+             <a href="contact.html" class="support-card-button">Solicitar Soporte</a>
+           </div>
+         </div>
+       </div>
+ 
+     
+     </div>
+   </div>
+ </section>
+ 
+ <!-- Sección de Máquinas Perkins -->
+ <section class="support-category bg-alternate">
+   <div class="container">
     <div class="row">
-      <div class="col-md-12 text-center">
-        <h3>¿Necesita asistencia técnica para su equipo?</h3>
-        <p>Contamos con un equipo de expertos listos para ayudarle a mantener sus equipos funcionando correctamente.</p>
-        <a href="#contacto" class="support-cta-button">Solicitar Servicio Técnico</a>
+      <div class="col-md-12 mb-4" >
+        <div class="title text-center">
+          <h2>Máquinas Perkins</h2>
+          <p>Expertos en mantenimiento y reparación de máquinas Perkins, tanto mecánicas como electrónicas, para garantizar su funcionamiento óptimo y durabilidad.</p>
+          <div class="border"></div>
+        </div>
       </div>
-    </div>
+      </div>
+   
+    
+     
+     <div class="row justify-content-center">
+       <!-- Perkins Mecánicas -->
+       <div class="col-md-6 col-lg-4 mb-4">
+         <div class="support-card">
+           <div class="support-card-image">
+             <img src="images/support/perkins_mecanica.jpg" alt="Máquina Perkins Mecánica">
+           </div>
+           <div class="support-card-content">
+             <h3 class="support-card-title">Perkins Mecánicas</h3>
+             <p class="support-card-text">Reparación y restauración completa de máquinas Perkins mecánicas tradicionales para prolongar su vida útil.</p>
+             <div class="support-features">
+               <div class="support-feature-item">
+                 <i class="fas fa-check-circle"></i>
+                 <span>Restauración completa</span>
+               </div>
+               <div class="support-feature-item">
+                 <i class="fas fa-check-circle"></i>
+                 <span>Limpieza profunda</span>
+               </div>
+               <div class="support-feature-item">
+                 <i class="fas fa-check-circle"></i>
+                 <span>Ajuste de precisión</span>
+               </div>
+               <div class="support-feature-item">
+                 <i class="fas fa-check-circle"></i>
+                 <span>Reemplazo de partes</span>
+               </div>
+             </div>
+             <a href="contact.html" class="support-card-button">Solicitar Soporte</a>
+           </div>
+         </div>
+       </div>
+ 
+       <!-- Perkins Electrónicas -->
+       <div class="col-md-6 col-lg-4 mb-4">
+         <div class="support-card">
+           <div class="support-card-image">
+             <img src="images/support/perkins_electronica.jpg" alt="Máquina Perkins Electrónica">
+           </div>
+           <div class="support-card-content">
+             <h3 class="support-card-title">Perkins Electrónicas</h3>
+             <p class="support-card-text">Servicio técnico especializado para máquinas Perkins con componentes electrónicos y sistemas modernos.</p>
+             <div class="support-features">
+               <div class="support-feature-item">
+                 <i class="fas fa-check-circle"></i>
+                 <span>Reparación de circuitos</span>
+               </div>
+               <div class="support-feature-item">
+                 <i class="fas fa-check-circle"></i>
+                 <span>Actualización de software</span>
+               </div>
+               <div class="support-feature-item">
+                 <i class="fas fa-check-circle"></i>
+                 <span>Reemplazo de componentes</span>
+               </div>
+               <div class="support-feature-item">
+                 <i class="fas fa-check-circle"></i>
+                 <span>Calibración electrónica</span>
+               </div>
+             </div>
+             <a href="contact.html" class="support-card-button">Solicitar Soporte</a>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </section>
+ 
+<!-- Sección de Software Braille y Accesibilidad con estilo consistente -->
+<section class="support-category software-section">
+  <div class="container">
+     <div class="row">
+        <div class="col-md-12 mb-4">
+           <div class="title text-center">
+              <h2>Software Braille y Accesibilidad</h2>
+              <p>Ofrecemos asesoría técnica, instalación y soporte para los principales softwares de transcripción, producción braille y accesibilidad del mercado.</p>
+              <div class="border"></div>
+           </div>
+        </div>
+     </div>
+   
+     <div class="row d-flex justify-content-center">
+        <!-- JWS -->
+        <div class="col-md-6 col-lg-3 mb-4 d-flex justify-content-center">
+           <div class="support-card">
+              <div class="support-card-image">
+                 <img src="images/product/tecnologia/jaws.jpg" alt="JWS Software">
+              </div>
+              <div class="support-card-content">
+                 <h3 class="support-card-title">JWS</h3>
+                 <p class="support-card-text">Soporte para instalación, configuración y uso avanzado del software JWS para producción braille.</p>
+                 <div class="support-features">
+                    <div class="support-feature-item">
+                       <i class="fas fa-check-circle"></i>
+                       <span>Instalación personalizada</span>
+                    </div>
+                    <div class="support-feature-item">
+                       <i class="fas fa-check-circle"></i>
+                       <span>Configuración avanzada</span>
+                    </div>
+                 </div>
+                 <a href="contact.html" class="support-card-button">Más Información</a>
+              </div>
+           </div>
+        </div>
+      
+        <!-- Fusion -->
+        <div class="col-md-6 col-lg-3 mb-4 d-flex justify-content-center">
+           <div class="support-card">
+              <div class="support-card-image">
+                 <img src="images/product/tecnologia/fusion.jpg" alt="Fusion Software">
+              </div>
+              <div class="support-card-content">
+                 <h3 class="support-card-title">Fusion</h3>
+                 <p class="support-card-text">Asistencia técnica completa para el software Fusion, solución integral para producción de material braille.</p>
+                 <div class="support-features">
+                    <div class="support-feature-item">
+                       <i class="fas fa-check-circle"></i>
+                       <span>Soporte técnico</span>
+                    </div>
+                    <div class="support-feature-item">
+                       <i class="fas fa-check-circle"></i>
+                       <span>Actualización de versiones</span>
+                    </div>
+                 </div>
+                 <a href="contact.html" class="support-card-button">Más Información</a>
+              </div>
+           </div>
+        </div>
+        
+        <!-- Duxbury -->
+        <div class="col-md-6 col-lg-3 mb-4 d-flex justify-content-center">
+           <div class="support-card">
+              <div class="support-card-image">
+                 <img src="images/product/tecnologia/duxbury 1.gif" alt="Duxbury DBT Software">
+              </div>
+              <div class="support-card-content">
+                 <h3 class="support-card-title">Duxbury DBT</h3>
+                 <p class="support-card-text">Asesoría técnica para Duxbury DBT para Windows, el software de traducción braille más utilizado a nivel mundial.</p>
+                 <div class="support-features">
+                    <div class="support-feature-item">
+                       <i class="fas fa-check-circle"></i>
+                       <span>Configuración multilingüe</span>
+                    </div>
+                    <div class="support-feature-item">
+                       <i class="fas fa-check-circle"></i>
+                       <span>Optimización</span>
+                    </div>
+                 </div>
+                 <a href="contact.html" class="support-card-button">Más Información</a>
+              </div>
+           </div>
+        </div>
+        
+        <!-- Dragon Naturally Speaking -->
+        <div class="col-md-6 col-lg-3 mb-4 d-flex justify-content-center">
+           <div class="support-card">
+              <div class="support-card-image">
+                 <img src="images/product/tecnologia/Dragon Naturally Speaking Versión Profesional Individual 15.jpg" alt="Dragon Naturally Speaking Software">
+              </div>
+              <div class="support-card-content">
+                 <h3 class="support-card-title">Dragon Naturally Speaking</h3>
+                 <p class="support-card-text">Asistencia técnica para el software de reconocimiento de voz Dragon Naturally Speaking.</p>
+                 <div class="support-features">
+                    <div class="support-feature-item">
+                       <i class="fas fa-check-circle"></i>
+                       <span>Configuración personalizada</span>
+                    </div>
+                    <div class="support-feature-item">
+                       <i class="fas fa-check-circle"></i>
+                       <span>Entrenamiento de voz</span>
+                    </div>
+                 </div>
+                 <a href="contact.html" class="support-card-button">Más Información</a>
+              </div>
+           </div>
+        </div>
+        
+        <!-- LAMBDA MATEMATICA -->
+        <div class="col-md-6 col-lg-3 mb-4 d-flex justify-content-center">
+           <div class="support-card">
+              <div class="support-card-image">
+                 <img src="images/product/tecnologia/LAMBDA.jpg" alt="LAMBDA MATEMATICA Software">
+              </div>
+              <div class="support-card-content">
+                 <h3 class="support-card-title">LAMBDA MATEMATICA</h3>
+                 <p class="support-card-text">Soporte técnico especializado para el software LAMBDA de notación matemática accesible.</p>
+                 <div class="support-features">
+                    <div class="support-feature-item">
+                       <i class="fas fa-check-circle"></i>
+                       <span>Instalación y configuración</span>
+                    </div>
+                    <div class="support-feature-item">
+                       <i class="fas fa-check-circle"></i>
+                       <span>Capacitación de uso</span>
+                    </div>
+                 </div>
+                 <a href="contact.html" class="support-card-button">Más Información</a>
+              </div>
+           </div>
+        </div>
+        
+        <!-- Lector de pantalla -->
+        <div class="col-md-6 col-lg-3 mb-4 d-flex justify-content-center">
+           <div class="support-card">
+              <div class="support-card-image">
+                 <img src="images/product/tecnologia/supernova 1.jpg" alt="Lectores de pantalla Software">
+              </div>
+              <div class="support-card-content">
+                 <h3 class="support-card-title">Lectores de pantalla</h3>
+                 <p class="support-card-text">Asistencia técnica para instalación y configuración de diversos lectores de pantalla.</p>
+                 <div class="support-features">
+                    <div class="support-feature-item">
+                       <i class="fas fa-check-circle"></i>
+                       <span>Configuración optimizada</span>
+                    </div>
+                    <div class="support-feature-item">
+                       <i class="fas fa-check-circle"></i>
+                       <span>Resolución de problemas</span>
+                    </div>
+                 </div>
+                 <a href="contact.html" class="support-card-button">Más Información</a>
+              </div>
+           </div>
+        </div>
+
+         <!-- Dolphin -->
+         <div class="col-md-6 col-lg-3 mb-4 d-flex justify-content-center">
+          <div class="support-card">
+             <div class="support-card-image">
+                <img src="images/product/tecnologia/Lector de pantalla Dolphin.jpg" alt="Dolphin Screen Reader">
+             </div>
+             <div class="support-card-content">
+                <h3 class="support-card-title">Dolphin</h3>
+                <p class="support-card-text">Soporte técnico completo para el lector de pantalla Dolphin en su versión descargable.</p>
+                <div class="support-features">
+                   <div class="support-feature-item">
+                      <i class="fas fa-check-circle"></i>
+                      <span>Instalación y activación</span>
+                   </div>
+                   <div class="support-feature-item">
+                      <i class="fas fa-check-circle"></i>
+                      <span>Personalización de voz</span>
+                   </div>
+                   <div class="support-feature-item">
+                      <i class="fas fa-check-circle"></i>
+                      <span>Configuración con periféricos</span>
+                   </div>
+                </div>
+                <a href="contact.html" class="support-card-button">Más Información</a>
+             </div>
+          </div>
+       </div>
+         <!-- TactileView -->
+         <div class="col-md-6 col-lg-3 mb-4 d-flex justify-content-center">
+          <div class="support-card">
+             <div class="support-card-image">
+                <img src="images/support/tactil.webp" alt="TactileView Software">
+             </div>
+             <div class="support-card-content">
+                <h3 class="support-card-title">TactileView</h3>
+                <p class="support-card-text">Asesoría técnica para el software TactileView de diseño y producción de gráficos táctiles en relieve.</p>
+                <div class="support-features">
+                   <div class="support-feature-item">
+                      <i class="fas fa-check-circle"></i>
+                      <span>Configuración con impresoras</span>
+                   </div>
+                   <div class="support-feature-item">
+                      <i class="fas fa-check-circle"></i>
+                      <span>Diseño de gráficos táctiles</span>
+                   </div>
+                   <div class="support-feature-item">
+                      <i class="fas fa-check-circle"></i>
+                      <span>Optimización de relieve</span>
+                   </div>
+                </div>
+                <a href="contact.html" class="support-card-button">Más Información</a>
+             </div>
+          </div>
+       </div>
+     </div>
   </div>
 </section>
-
 <!-- Footer -->
 <footer id="footer" class="bg-one">
   <div class="container">
