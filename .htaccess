@@ -1,40 +1,36 @@
 # Proteger archivos de configuración
 <Files "config.php">
-    Order Allow,Deny
-    Deny from all
+    Require all denied
 </Files>
 
 <Files ".env">
-    Order Allow,Deny
-    Deny from all
+    Require all denied
 </Files>
 
 # Proteger archivos sensibles
 <FilesMatch "\.(log|bak|backup|sql)$">
-    Order Allow,Deny
-    Deny from all
+    Require all denied
 </FilesMatch>
 
-# Prevenir acceso directo a archivos PHP (excepto los necesarios)
-<FilesMatch "^(sendmail|config)\.php$">
-    # Solo permitir acceso POST a sendmail.php
-    <RequireAll>
-        Require method POST
-    </RequireAll>
-</FilesMatch>
+# Permitir solo POST a sendmail.php
+<Files "sendmail.php">
+    <LimitExcept POST>
+        Require all denied
+    </LimitExcept>
+</Files>
+
+# Proteger config.php (aunque ya lo hiciste antes)
+<Files "config.php">
+    Require all denied
+</Files>
 
 # Headers de seguridad
-Header always set X-Content-Type-Options nosniff
-Header always set X-Frame-Options DENY
-Header always set X-XSS-Protection "1; mode=block"
-Header always set Referrer-Policy "strict-origin-when-cross-origin"
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "DENY"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
 
 # Prevenir listado de directorios
 Options -Indexes
-
-# Protección contra ataques de fuerza bruta
-<RequireAll>
-    # Limitar intentos por IP
-    Require not ip 0.0.0.0/0
-    Require all granted
-</RequireAll>
