@@ -837,10 +837,15 @@ a:focus, a:hover {
 
 .team-member .member-photo img {
   border-radius: 50%;
-  max-width: 200px;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
   margin: 0 auto 15px;
+  display: block;
 }
-
+.team-member .member-content {
+  text-align: center;
+}
 .team-member .member-content h3 {
   color: var(--azul);
 }
