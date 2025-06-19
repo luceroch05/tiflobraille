@@ -269,7 +269,7 @@ class CartSystem {
         message += "Por favor, envíenme información sobre precios y disponibilidad.%0A%0A";
         message += "¡Gracias!";
 
-        const whatsappNumber = "51953608682";
+        const whatsappNumber = "51979783905";
         const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
         
         window.open(whatsappUrl, '_blank');
