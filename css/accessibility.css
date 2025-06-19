@@ -51,8 +51,12 @@ body.dark-mode .product-content,
 body.dark-mode .support-category,
 body.dark-mode .software-section,
 body.dark-mode .support-card ,
-body.dark-mode .modal-content
-{
+body.dark-mode .modal-content,
+body.dark-mode .cart-modal-content,
+body.dark-mode .cart-header ,
+body.dark-mode .cart-footer,
+body.dark-mode .cart-body
+{ 
   background-color: #333;
   color: #f1f1f1; /* Texto blanco */
 }
@@ -110,6 +114,8 @@ body.dark-mode h1,
 body.dark-mode h2, 
 body.dark-mode h3, 
 body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
 body.dark-mode span,
 body.dark-mode div,
 body.dark-mode a,
@@ -206,7 +212,7 @@ body.dark-mode .project-item {
     padding: 0;
     border: none;
 } 
-.accessibility-toolbar-toggle {
+/* .accessibility-toolbar-toggle {
     width: 40px;
     height: 40px;
     background-color: var(--verde);
@@ -223,7 +229,7 @@ body.dark-mode .project-item {
     color: white;
     font-size: 20px;
     box-shadow: 0 0 5px rgba(0,0,0,0.2);
-}
+} */
   .accessibility-toolbar-content {
     padding: 15px;
     opacity: 0;
@@ -275,7 +281,7 @@ body.dark-mode .project-item {
   }
   
   /* Modo oscuro para la barra de herramientas */
-  body.dark-mode .accessibility-toolbar {
+  body.dark-mode .accessibility-toolbar-content {
     background-color: #333;
     border-color: var(--verde);
   }
@@ -294,8 +300,5 @@ body.dark-mode .project-item {
       max-width: 250px;
     }
     
-    .accessibility-toolbar-toggle {
-      right: 5px;
-      top: 5px;
-    }
+   
   }

@@ -278,6 +278,42 @@ End Fixed Navigation
     </div>
   </div>
 </footer>
+<!-- Carrito flotante -->
+    <div class="cart-float">
+        <button class="cart-button" id="cartButton">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count" id="cartCount">0</span>
+        </button>
+    </div>
+
+   
+
+   
+    <!-- Modal del carrito -->
+    <div id="cartModal" class="cart-modal">
+        <div class="cart-modal-content">
+            <div class="cart-header">
+                <h3><i class="fas fa-shopping-cart"></i> Mi Cotización</h3>
+                <button class="close-cart" id="closeCart">&times;</button>
+            </div>
+            <div class="cart-body" id="cartBody">
+                <div class="cart-empty">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h4>Tu cotización está vacía</h4>
+                    <p>Agrega productos para solicitar una cotización</p>
+                </div>
+            </div>
+            <div class="cart-footer" id="cartFooter" style="display: none;">
+                <div class="cart-total" id="cartTotal">
+                    Total de productos: 0
+                </div>
+                <button class="quote-btn" id="quoteBtn">
+                    <i class="fab fa-whatsapp"></i>
+                    Solicitar Cotización por WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
 
 
     <!-- end Footer Area

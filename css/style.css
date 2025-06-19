@@ -2525,7 +2525,7 @@ a:focus, a:hover {
 .modal {
   display: none;
   position: fixed;
-  z-index: 9999; /* Aumentado significativamente para asegurar que esté por encima de todo */
+  z-index: 999999999999999999; /* Aumentado significativamente para asegurar que esté por encima de todo */
   left: 0;
   top: 0;
   width: 100%;
@@ -2797,7 +2797,7 @@ a:focus, a:hover {
 .modal {
   display: none;
   position: fixed;
-  z-index: 10000; /* Un z-index mayor para el modal */
+  z-index: 100000000000000; /* Un z-index mayor para el modal */
   left: 0;
   top: 0;
   width: 100%;
@@ -4207,3 +4207,683 @@ section.section-services h2, section#contact.contact-us h2{
     text-align: center;
     margin-bottom: 25px;
  }
+
+
+
+
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--naranja, #f0823c);
+    color: var(--blanco, #ffffff);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+    font-weight: bold;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.cart-count.show {
+    display: flex;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Modal del carrito */
+.cart-modal {
+    display: none;
+    position: fixed;
+    z-index: 20000000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    animation: fadeIn 0.3s ease;
+}
+
+.cart-modal-content {
+    background-color: var(--blanco, #ffffff);
+    margin: 5% auto;
+    border-radius: var(--radio, 12px);
+    width: 90%;
+    max-width: 600px;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    animation: slideIn 0.3s ease;
+    overflow: hidden;
+    box-shadow: var(--sombra-suave, 0 10px 30px rgba(0, 0, 0, 0.05));
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.cart-header {
+    padding: 20px;
+    border-bottom: 1px solid var(--gris-medio, #e9ecef);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--azul-claro, #eceef9);
+    border-radius: var(--radio, 12px) var(--radio, 12px) 0 0;
+    flex-shrink: 0;
+}
+
+.cart-header h3 {
+    margin: 0;
+    color: var(--azul, #3b4395);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.cart-header h3 i {
+    color: var(--verde, #86bd3f);
+    margin-right: 10px;
+}
+
+.close-cart {
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: var(--texto-secundario, #666);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: var(--transicion, all 0.3s ease);
+}
+
+.close-cart:hover {
+    background: var(--gris-medio, #e9ecef);
+    color: var(--texto, #333);
+}
+
+.cart-body {
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto;
+    min-height: 0;
+    scrollbar-width: thin;
+    scrollbar-color: #ccc #f0f0f0;
+}
+
+.cart-empty {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--texto-secundario, #666);
+}
+
+.cart-empty i {
+    font-size: 48px;
+    color: var(--gris-medio, #e9ecef);
+    margin-bottom: 20px;
+}
+
+.cart-empty h4 {
+    margin: 20px 0 10px;
+    color: var(--texto, #333);
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--gris-medio, #e9ecef);
+    gap: 15px;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item-image {
+    flex-shrink: 0;
+}
+
+.cart-item-image img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: var(--radio, 12px);
+    border: 1px solid var(--gris-medio, #e9ecef);
+}
+
+.cart-item-info {
+    flex: 1;
+}
+
+.cart-item-title {
+    margin: 0 0 10px;
+    font-size: 14px;
+    color: var(--texto, #333);
+    line-height: 1.3;
+    font-weight: 500;
+}
+
+.cart-item-quantity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantity-btn {
+    background: var(--gris-claro, #f8f9fa);
+    border: 1px solid var(--gris-medio, #e9ecef);
+    border-radius: 6px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transicion, all 0.3s ease);
+    color: var(--texto, #333);
+}
+
+.quantity-btn:hover {
+    background: var(--verde-claro, #f0f7e6);
+    border-color: var(--verde, #86bd3f);
+    color: var(--verde, #86bd3f);
+}
+
+.quantity-display {
+    font-weight: bold;
+    min-width: 30px;
+    text-align: center;
+    color: var(--texto, #333);
+}
+
+.remove-item {
+    background: var(--naranja, #f0823c);
+    color: var(--blanco, #ffffff);
+    border: none;
+    border-radius: 6px;
+    padding: 8px;
+    cursor: pointer;
+    transition: var(--transicion, all 0.3s ease);
+}
+
+.remove-item:hover {
+    background: var(--azul, #3b4395);
+    transform: translateY(-1px);
+}
+
+.cart-footer {
+    padding: 20px;
+    border-top: 1px solid #eee;
+    background: #f8f9fa;
+    border-radius: 0 0 10px 10px;
+    flex-shrink: 0;
+}
+
+.cart-total {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.quote-btn {
+    width: 100%;
+    background: #25d366;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.quote-btn:hover {
+    background: #22c55e;
+    transform: translateY(-1px);
+}
+
+/* Botón agregar al carrito */
+.add-to-cart-btn {
+    background: var(--naranja);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+}
+
+.add-to-cart-btn:hover {
+    background: var(--azul);
+    transform: translateY(-1px);
+}
+
+.add-to-cart-btn.added {
+    background: --verde;
+}
+
+.add-to-cart-btn i {
+    font-size: 12px;
+}
+
+/* Estilos personalizados para scrollbar */
+.cart-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.cart-body::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 3px;
+}
+
+.cart-body::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 3px;
+}
+
+.cart-body::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cart-modal-content {
+        width: 95%;
+        margin: 5% auto;
+        max-height: 90vh;
+    }
+    
+    .cart-header {
+        padding: 15px;
+    }
+    
+    .cart-body {
+        padding: 15px;
+    }
+    
+    .cart-footer {
+        padding: 15px;
+    }
+    
+    .cart-item {
+        padding: 10px 0;
+    }
+    
+    .cart-item-image img {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .cart-item-title {
+        font-size: 13px;
+    }
+}
+
+
+
+/* BOTONES FLOTANTES - VERSIÓN CORREGIDA */
+
+/* WhatsApp Float - Botón principal (siempre visible) */
+.whatsapp-float {
+  position: fixed !important;
+  width: 60px !important;
+  height: 60px !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  background-color: #25D366 !important;
+  color: #FFF !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-decoration: none !important;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4) !important;
+  z-index: 999997 !important;
+  transition: all 0.3s ease !important;
+}
+
+.whatsapp-float:hover {
+  background-color: #128C7E !important;
+  transform: scale(1.1) !important;
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.6) !important;
+}
+
+.whatsapp-float i {
+  font-size: 26px !important;
+  color: #FFFFFF !important;
+}
+
+/* Carrito Float - Contenedor */
+.cart-float {
+  position: fixed !important;
+  width: 60px !important;
+  height: 60px !important;
+  bottom: 100px !important;
+  right: 20px !important;
+  z-index: 999998 !important;
+}
+
+/* Carrito Button - El botón real */
+.cart-button {
+  background: var(--verde, #86bd3f);
+  color: var(--blanco, #ffffff);
+  border: none;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.cart-button:hover {
+  background: var(--naranja, #f0823c);
+  transform: translateY(-2px) scale(1.1);
+  box-shadow: 0 6px 16px rgba(240, 130, 60, 0.4);
+}
+
+.cart-button.bounce {
+  animation: bounce 0.6s ease;
+}
+
+/* Contador del carrito */
+.cart-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #ff4444;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* Botón de Accesibilidad - MÁXIMA PRIORIDAD */
+.accessibility-toolbar-toggle {
+  position: fixed !important;
+  width: 60px !important;
+  height: 60px !important;
+  bottom: 180px !important;
+  right: 20px !important;
+  background-color: var(--azul) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  font-size: 24px !important;
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.4) !important;
+  z-index: 999999 !important;
+  transition: all 0.3s ease !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: translateZ(0) !important;
+    margin: 0 !important;
+  padding: 0 !important;
+}
+
+.accessibility-toolbar-toggle:hover {
+  background-color: #1976D2 !important;
+  transform: scale(1.1) translateZ(0) !important;
+  box-shadow: 0 6px 16px rgba(33, 150, 243, 0.6) !important;
+}
+
+/* MÓVILES - Ajustes específicos */
+@media screen and (max-width: 768px) {
+  .whatsapp-float {
+    width: 50px !important;
+    height: 50px !important;
+    bottom: 15px !important;
+    right: 15px !important;
+    z-index: 999997 !important;
+  }
+  
+  .whatsapp-float i {
+    font-size: 22px !important;
+  }
+  
+  .cart-float {
+    width: 50px !important;
+    height: 50px !important;
+    bottom: 80px !important;
+    right: 15px !important;
+    z-index: 999998 !important;
+  }
+  
+  .cart-button {
+    font-size: 18px !important;
+  }
+  
+  .cart-count {
+    width: 16px !important;
+    height: 16px !important;
+    font-size: 10px !important;
+    top: -3px !important;
+    right: -3px !important;
+  }
+  
+  .accessibility-toolbar-toggle {
+    width: 50px !important;
+    height: 50px !important;
+    bottom: 145px !important;
+    right: 15px !important;
+    font-size: 20px !important;
+    z-index: 999999 !important;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    border-radius: 50% !important;
+    box-shadow: 0 6px 16px rgba(33, 150, 243, 0.5) !important;
+  }
+}
+
+/* MÓVILES PEQUEÑOS */
+@media screen and (max-width: 480px) {
+  .whatsapp-float {
+    width: 45px !important;
+    height: 45px !important;
+    bottom: 10px !important;
+    right: 10px !important;
+  }
+  
+  .whatsapp-float i {
+    font-size: 20px !important;
+  }
+  
+  .cart-float {
+    width: 45px !important;
+    height: 45px !important;
+    bottom: 70px !important;
+    right: 10px !important;
+  }
+  
+  .cart-button {
+    font-size: 16px !important;
+  }
+  
+  .cart-count {
+    width: 14px !important;
+    height: 14px !important;
+    font-size: 9px !important;
+    top: -2px !important;
+    right: -2px !important;
+  }
+  
+  .accessibility-toolbar-toggle {
+    width: 45px !important;
+    height: 45px !important;
+    bottom: 130px !important;
+    right: 10px !important;
+    font-size: 18px !important;
+    z-index: 999999 !important;
+  }
+}
+
+/* TABLETS */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .whatsapp-float {
+    width: 55px !important;
+    height: 55px !important;
+    bottom: 20px !important;
+    right: 20px !important;
+  }
+     
+  .cart-float {
+    width: 55px !important;
+    height: 55px !important;
+    bottom: 90px !important;
+    right: 20px !important;
+  }
+  
+  .cart-button {
+    font-size: 18px !important;
+  }
+  
+  .cart-count {
+    width: 18px !important;
+    height: 18px !important;
+    font-size: 11px !important;
+    top: -4px !important;
+    right: -4px !important;
+  }
+     
+  .accessibility-toolbar-toggle {
+    width: 55px !important;
+    height: 55px !important;
+    bottom: 160px !important;
+    right: 20px !important;
+    font-size: 22px !important;
+  }
+}
+
+/* ANIMACIONES */
+@keyframes float {
+  0%, 100% {
+     transform: translateY(0px) translateZ(0);
+   }
+  50% {
+     transform: translateY(-2px) translateZ(0);
+   }
+}
+
+@keyframes bounce {
+  0%, 20%, 60%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  80% {
+    transform: translateY(-5px);
+  }
+}
+
+.whatsapp-float, .cart-float, .accessibility-toolbar-toggle {
+  animation: float 4s ease-in-out infinite;
+}
+
+.cart-float {
+  animation-delay: 0.5s;
+}
+
+.accessibility-toolbar-toggle {
+  animation-delay: 1s;
+}
+
+/* OVERRIDE CUALQUIER ESTILO QUE OCULTE EL BOTÓN */
+.accessibility-toolbar-toggle, 
+.accessibility-toolbar-toggle:before, 
+.accessibility-toolbar-toggle:after {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: translateZ(0) !important;
+}
+
+/* FALLBACK PARA GARANTIZAR QUE SIEMPRE SE VEA */
+body .accessibility-toolbar-toggle {
+  position: fixed !important;
+  z-index: 999999 !important;
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* ANIMACIÓN SUAVE */
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) translateZ(0); 
+  }
+  50% { 
+    transform: translateY(-2px) translateZ(0); 
+  }
+}
+
+.whatsapp-float,
+.cart-float,
+.accessibility-toolbar-toggle {
+  animation: float 4s ease-in-out infinite;
+}
+
+.cart-float {
+  animation-delay: 0.5s;
+}
+
+.accessibility-toolbar-toggle {
+  animation-delay: 1s;
+}
+
+/* OVERRIDE CUALQUIER ESTILO QUE OCULTE EL BOTÓN */
+.accessibility-toolbar-toggle,
+.accessibility-toolbar-toggle:before,
+.accessibility-toolbar-toggle:after {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: translateZ(0) !important;
+}
+
+/* FALLBACK PARA GARANTIZAR QUE SIEMPRE SE VEA */
+body .accessibility-toolbar-toggle {
+  position: fixed !important;
+  z-index: 999999 !important;
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
