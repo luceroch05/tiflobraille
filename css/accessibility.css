@@ -34,6 +34,7 @@
   }
  
 body.dark-mode .section,
+
 body.dark-mode .hero-slider,
 body.dark-mode .projects,
 body.dark-mode .call-to-action,
@@ -302,3 +303,54 @@ body.dark-mode .project-item {
     
    
   }
+
+  /* Estilos específicos para móvil */
+@media (max-width: 991.98px) {
+    /* Menu colapsado en modo oscuro */
+    body.dark-mode .navbar-collapse {
+        background-color: #1f1f1f !important;
+  
+        border-radius: 8px;
+        margin-top: 10px;
+        padding: 15px;
+        
+        }
+     
+    body.dark-mode .navbar-toggler-icon {
+    filter: invert(1);
+       }
+
+    /* Items del menu en móvil oscuro */
+    body.dark-mode .navbar-nav .nav-item {
+        
+        margin-bottom: 5px;
+        padding-bottom: 8px;
+    }
+    
+    body.dark-mode .navbar-nav .nav-item:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+    }
+    
+    /* Links en móvil oscuro */
+    body.dark-mode .navbar-nav .nav-link {
+        color: #f1f1f1 !important;
+        padding: 12px 0 !important;
+        font-size: 16px;
+        transition: all 0.3s ease;
+    }
+    
+    body.dark-mode .navbar-nav .nav-link:hover,
+    body.dark-mode .navbar-nav .nav-link:focus {
+        color: var(--naranja) !important;
+        background-color: rgba(240, 130, 60, 0.1);
+        border-radius: 4px;
+        padding-left: 10px !important;
+    }
+    
+    /* Header fijo en móvil oscuro */
+    body.dark-mode .navigation.fixed-top {
+        background-color: #1f1f1f !important;
+       
+    }
+}
