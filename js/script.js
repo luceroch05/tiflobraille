@@ -238,124 +238,234 @@
 })(jQuery);
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Datos de proyectos
-  const projects = [
-    {
-      id: 1,
-      image: 'images/portfolio/portfolio-1.jpg',
-      title: 'Accesibilidad urbana',
-      description: 'Implementación de rampas, elevadores y señalización especial para personas con movilidad reducida en espacios públicos.'
-    },
-    {
-      id: 2,
-      image: 'images/portfolio/portfolio-2.jpg',
-      title: 'Inclusión digital',
-      description: 'Desarrollo de plataformas digitales accesibles con opciones para personas con discapacidad visual y auditiva.'
-    },
-    {
-      id: 3,
-      image: 'images/portfolio/portfolio-3.jpg',
-      title: 'Movilidad sostenible',
-      description: 'Soluciones de transporte público inclusivo con espacios adaptados y señalización para todas las personas.'
-    },
-    {
-      id: 4,
-      image: 'images/portfolio/portfolio-4.jpg',
-      title: 'Tecnología adaptativa',
-      description: 'Dispositivos especializados que mejoran la calidad de vida de personas con diferentes tipos de discapacidad.'
-    },
-    {
-      id: 5,
-      image: 'images/portfolio/portfolio-5.jpg',
-      title: 'Espacios inclusivos',
-      description: 'Diseño universal que permite a todas las personas disfrutar de espacios públicos y privados sin barreras.'
-    },
-    {
-      id: 6,
-      image: 'images/portfolio/portfolio-6.jpg',
-      title: 'Comunicación accesible',
-      description: 'Materiales informativos y educativos en múltiples formatos: braille, lengua de señas, audioguías y más.'
-    }
+  // Array de imágenes de proyectos
+  const projectImages = [
+    'images/projects/foto4.jpg',
+    'images/projects/foto2.jpg',
+    'images/projects/foto1.jpg',
+    'images/projects/foto5.jpg',
+    'images/projects/foto3.jpg',
+    'images/projects/foto6.jpg'
   ];
   
   // Elementos del DOM
   const modal = document.getElementById('projectModal');
   const modalImage = document.getElementById('modalImage');
-  const modalTitle = document.getElementById('modalTitle');
-  const modalDescription = document.getElementById('modalDescription');
   const closeBtn = document.querySelector('.modal-close');
   const prevBtn = document.getElementById('prevProject');
   const nextBtn = document.getElementById('nextProject');
   const projectItems = document.querySelectorAll('.project-item');
   
-  // Variable para mantener el índice actual
   let currentIndex = 0;
+  let isModalOpen = false;
   
   // Función para abrir el modal
   function openModal(index) {
+    if (isModalOpen) return;
+    
     currentIndex = index;
-    const project = projects[index];
+    isModalOpen = true;
     
-    modalImage.src = project.image;
-    modalTitle.textContent = project.title;
-    modalDescription.textContent = project.description;
+    // Configurar imagen
+    modalImage.src = projectImages[index];
+    modalImage.alt = `Proyecto ${index + 1} - Vista completa`;
     
+    // Mostrar modal
     modal.style.display = 'block';
-    document.body.style.overflow = 'hidden'; // Evitar scroll
+    document.body.style.overflow = 'hidden';
     
-    // Efecto de animación
-    modalImage.classList.add('fade-in');
-    setTimeout(() => {
-      modalImage.classList.remove('fade-in');
-    }, 500);
+    // Activar con delay para animación
+    requestAnimationFrame(() => {
+      modal.classList.add('active');
+    });
   }
   
   // Función para cerrar el modal
   function closeModal() {
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto'; // Restaurar scroll
+    if (!isModalOpen) return;
+    
+    modal.classList.remove('active');
+    
+    // Esperar animación antes de ocultar
+    setTimeout(() => {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+      isModalOpen = false;
+    }, 300);
   }
   
-  // Navegación entre proyectos
-  function prevProject() {
-    currentIndex = (currentIndex - 1 + projects.length) % projects.length;
-    openModal(currentIndex);
+  // Función para navegar entre proyectos
+  function navigateProject(direction) {
+    if (!isModalOpen) return;
+    
+    // Calcular nuevo índice
+    if (direction === 'prev') {
+      currentIndex = (currentIndex - 1 + projectImages.length) % projectImages.length;
+    } else if (direction === 'next') {
+      currentIndex = (currentIndex + 1) % projectImages.length;
+    }
+    
+    // Efecto de transición suave
+    modalImage.style.opacity = '0';
+    
+    setTimeout(() => {
+      modalImage.src = projectImages[currentIndex];
+      modalImage.alt = `Proyecto ${currentIndex + 1} - Vista completa`;
+      modalImage.style.opacity = '1';
+    }, 150);
   }
   
-  function nextProject() {
-    currentIndex = (currentIndex + 1) % projects.length;
-    openModal(currentIndex);
-  }
-  
-  // Asignar eventos
+  // Event listeners para abrir modal
   projectItems.forEach((item, index) => {
+    // Click en el proyecto
     item.addEventListener('click', () => openModal(index));
+    
+    // Soporte para teclado (accesibilidad)
+    item.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openModal(index);
+      }
+    });
+    
+    // Hacer los items focusables
+    item.setAttribute('tabindex', '0');
   });
   
-  closeBtn.addEventListener('click', closeModal);
+  // Event listeners para controles del modal
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeModal);
+  }
   
-  prevBtn.addEventListener('click', prevProject);
-  nextBtn.addEventListener('click', nextProject);
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => navigateProject('prev'));
+  }
   
-  // Cerrar modal al hacer clic fuera de la imagen
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => navigateProject('next'));
+  }
+  
+  // Cerrar modal al hacer clic en el fondo
   modal.addEventListener('click', function(e) {
     if (e.target === modal) {
       closeModal();
     }
   });
   
-  // Manejar eventos de teclado
+  // Controles de teclado
   document.addEventListener('keydown', function(e) {
-    if (modal.style.display === 'block') {
-      if (e.key === 'Escape') {
+    if (!isModalOpen) return;
+    
+    switch(e.key) {
+      case 'Escape':
         closeModal();
-      } else if (e.key === 'ArrowLeft') {
-        prevProject();
-      } else if (e.key === 'ArrowRight') {
-        nextProject();
-      }
+        break;
+      case 'ArrowLeft':
+        e.preventDefault();
+        navigateProject('prev');
+        break;
+      case 'ArrowRight':
+        e.preventDefault();
+        navigateProject('next');
+        break;
     }
   });
+  
+  // Soporte para gestos táctiles (swipe)
+  let startX = 0;
+  let startY = 0;
+  let endX = 0;
+  let endY = 0;
+  
+  modalImage.addEventListener('touchstart', function(e) {
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+  }, { passive: true });
+  
+  modalImage.addEventListener('touchmove', function(e) {
+    e.preventDefault(); // Prevenir scroll
+  }, { passive: false });
+  
+  modalImage.addEventListener('touchend', function(e) {
+    endX = e.changedTouches[0].clientX;
+    endY = e.changedTouches[0].clientY;
+    
+    const diffX = startX - endX;
+    const diffY = startY - endY;
+    const absDiffX = Math.abs(diffX);
+    const absDiffY = Math.abs(diffY);
+    
+    // Solo procesar swipes horizontales significativos
+    if (absDiffX > absDiffY && absDiffX > 50) {
+      if (diffX > 0) {
+        navigateProject('next'); // Swipe izquierda = siguiente
+      } else {
+        navigateProject('prev'); // Swipe derecha = anterior
+      }
+    }
+    
+    // Reset valores
+    startX = 0;
+    startY = 0;
+    endX = 0;
+    endY = 0;
+  }, { passive: true });
+  
+  // Prevenir el zoom con doble tap en la imagen del modal
+  let lastTouchEnd = 0;
+  modalImage.addEventListener('touchend', function(e) {
+    const now = (new Date()).getTime();
+    if (now - lastTouchEnd <= 300) {
+      e.preventDefault();
+    }
+    lastTouchEnd = now;
+  }, { passive: false });
+  
+  // Optimización: precargar la siguiente imagen
+  function preloadNextImage() {
+    if (!isModalOpen) return;
+    
+    const nextIndex = (currentIndex + 1) % projectImages.length;
+    const prevIndex = (currentIndex - 1 + projectImages.length) % projectImages.length;
+    
+    // Precargar siguiente y anterior
+    [nextIndex, prevIndex].forEach(index => {
+      const img = new Image();
+      img.src = projectImages[index];
+    });
+  }
+  
+  // Precargar cuando se abre el modal
+  modal.addEventListener('transitionend', function() {
+    if (modal.classList.contains('active')) {
+      preloadNextImage();
+    }
+  });
+  
+  // Manejo de errores de carga de imágenes
+  modalImage.addEventListener('error', function() {
+    console.warn(`Error cargando imagen: ${this.src}`);
+    // Aquí podrías mostrar una imagen de placeholder si quieres
+  });
+  
+  // Accesibilidad: anunciar cambios de imagen para lectores de pantalla
+  modalImage.addEventListener('load', function() {
+    if (isModalOpen) {
+      // Crear mensaje para lectores de pantalla
+      const announcement = document.createElement('div');
+      announcement.setAttribute('aria-live', 'polite');
+      announcement.setAttribute('aria-atomic', 'true');
+      announcement.className = 'sr-only';
+      announcement.textContent = `Proyecto ${currentIndex + 1} de ${projectImages.length}`;
+      
+      // Agregar temporalmente al DOM
+      document.body.appendChild(announcement);
+      setTimeout(() => {
+        document.body.removeChild(announcement);
+      }, 1000);
+    }
+  });
+  
+  console.log('Sistema de proyectos inicializado correctamente');
 });
-
 
