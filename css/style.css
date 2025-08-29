@@ -4788,7 +4788,7 @@ body .accessibility-toolbar-toggle {
 .navigation .navbar-light .navbar-nav .nav-item .nav-link:active, 
 .navigation .navbar-light .navbar-nav .nav-item .nav-link:focus {
   background: transparent;
-  color: #ffffff;
+  color: #d7d1d1;
   transform: translateY(-1px);
 }
 
@@ -5192,4 +5192,540 @@ body .accessibility-toolbar-toggle {
     padding: 8px 16px !important;
     font-size: 14px !important;
     font-weight: normal !important;
+}
+/* ------------DATALLE PRODUCTO----------- */
+/* ===== ESTILOS PARA DETALLE DE PRODUCTO ===== */
+
+
+
+
+/* Grid principal del producto */
+.product-detail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* ===== ESTILOS PARA IMÁGENES ===== */
+.product-images {
+    position: sticky;
+    top: 100px;
+}
+
+.main-image-container {
+    position: relative;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    background-color: #f8f9fa;
+}
+
+.product-images .main-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.product-images .main-image:hover {
+    transform: scale(1.02);
+}
+
+/* Navegación de imágenes */
+.image-navigation {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255,255,255,0.9);
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    color: var(--azul);
+    font-size: 18px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.main-image-container:hover .image-navigation {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.image-navigation:hover {
+    background-color: var(--verde);
+    color: white;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn {
+    left: 15px;
+}
+
+.next-btn {
+    right: 15px;
+}
+
+/* Galería de miniaturas */
+.thumbnail-gallery {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 10px 0;
+    scrollbar-width: thin;
+    scrollbar-color: var(--verde) #f1f1f1;
+}
+
+.thumbnail-gallery::-webkit-scrollbar {
+    height: 6px;
+}
+
+.thumbnail-gallery::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.thumbnail-gallery::-webkit-scrollbar-thumb {
+    background: var(--verde);
+    border-radius: 3px;
+}
+
+.thumbnail {
+    min-width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 3px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.thumbnail.active {
+    border-color: var(--verde);
+    box-shadow: 0 4px 15px rgba(134, 189, 63, 0.3);
+}
+
+.thumbnail:hover {
+    border-color: var(--naranja);
+    transform: scale(1.05);
+}
+
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* FIX PARA MOSTRAR IMÁGENES EN MINIATURAS */
+.thumbnail-gallery {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 0 10px;
+    justify-content: flex-start; /* Alinear a la izquierda */
+    overflow-x: auto;
+}
+
+.thumbnail {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    overflow: hidden; /* IMPORTANTE: Para que la imagen no se salga */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    background: #f8f9fa; /* Fondo de respaldo */
+}
+
+/* ESTE ES EL CSS MÁS IMPORTANTE */
+.thumbnail img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Para que se ajuste bien */
+    display: block !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.thumbnail.active {
+    border-color: var(--naranja, #ff6b35);
+    transform: scale(1.05);
+    box-shadow: 0 2px 10px rgba(255, 107, 53, 0.3);
+}
+
+.thumbnail:hover {
+    border-color: var(--naranja, #ff6b35);
+    transform: scale(1.02);
+}
+
+/* Si el problema persiste, usar este CSS más agresivo */
+.thumbnail-gallery .thumbnail img {
+    width: 76px !important; /* Un poco menos para el borde */
+    height: 76px !important;
+    object-fit: cover !important;
+    display: block !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    border-radius: 6px !important;
+}
+
+/* Para debug - quitar después */
+.thumbnail {
+    border: 2px solid orange !important; /* Para ver el contenedor */
+}
+
+.thumbnail img {
+    border: 1px solid red !important; /* Para ver la imagen */
+}
+
+
+/* ===== ESTILOS PARA INFORMACIÓN DEL PRODUCTO ===== */
+.product-info {
+    padding: 20px 0;
+}
+
+.product-info h1 {
+    color: var(--azul);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.product-info .categoria {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--verde), #7ab83a);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(134, 189, 63, 0.2);
+}
+
+.product-info .descripcion-corta {
+    font-size: 1.3rem;
+    color: #666;
+    font-weight: 500;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    border-left: 4px solid var(--verde);
+}
+
+.product-info .descripcion-larga {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+.product-info .descripcion-larga h3 {
+    color: var(--azul);
+    font-size: 1.4rem;
+    margin: 30px 0 15px 0;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.product-info .descripcion-larga h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--verde);
+}
+
+.product-info .descripcion-larga ul {
+    padding-left: 0;
+    margin: 20px 0;
+    list-style: none;
+}
+
+.product-info .descripcion-larga li {
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 30px;
+    color: #555;
+}
+
+.product-info .descripcion-larga li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--verde);
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.product-info .descripcion-larga p {
+    margin-bottom: 15px;
+}
+
+/* ===== ESTILOS PARA BOTONES ===== */
+.product-info .add-to-cart-btn {
+    background: linear-gradient(135deg, var(--verde), #7ab83a);
+    color: white;
+    border: none;
+    padding: 18px 35px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 6px 20px rgba(134, 189, 63, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.product-info .add-to-cart-btn:hover {
+    background: linear-gradient(135deg, var(--naranja), #e6732a);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(240, 130, 60, 0.4);
+}
+
+.product-info .add-to-cart-btn:active {
+    transform: translateY(-1px);
+}
+
+.product-info .add-to-cart-btn i {
+    font-size: 18px;
+}
+
+/* Botón secundario (si quieres agregar "Volver a productos") */
+.back-btn {
+    background-color: transparent;
+    color: var(--azul);
+    border: 2px solid var(--azul);
+    padding: 15px 25px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 15px;
+}
+
+.back-btn:hover {
+    background-color: var(--azul);
+    color: white;
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+/* Contenedor de botones si usas ambos */
+.product-actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 30px;
+}
+
+/* ===== CARACTERÍSTICAS ADICIONALES ===== */
+.product-features {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: 15px;
+    padding: 30px;
+    margin-top: 40px;
+    border: 1px solid #e0e0e0;
+}
+
+.product-features h3 {
+    color: var(--azul);
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.feature-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+}
+
+.feature-list li:last-child {
+    border-bottom: none;
+}
+
+.feature-list li:hover {
+    background-color: rgba(134, 189, 63, 0.05);
+    padding-left: 15px;
+}
+
+.feature-list li i {
+    color: var(--verde);
+    width: 20px;
+    text-align: center;
+    font-size: 16px;
+}
+
+/* ===== BREADCRUMB (opcional) ===== */
+.breadcrumb-section {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.breadcrumb {
+    background: none;
+    padding: 0;
+    margin: 0;
+}
+
+.breadcrumb-item a {
+    color: var(--azul);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb-item a:hover {
+    color: var(--verde);
+}
+
+.breadcrumb-item.active {
+    color: #6c757d;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 1024px) {
+    .product-detail {
+        gap: 40px;
+        padding: 0 20px;
+    }
+    
+    .product-info h1 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .product-detail {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 0 15px;
+    }
+
+    .product-images {
+        position: static;
+    }
+
+    .product-images .main-image {
+        height: 300px;
+    }
+
+    .product-info h1 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .product-info .categoria {
+        display: block;
+        text-align: center;
+        margin: 0 auto 25px;
+        width: fit-content;
+    }
+
+    .product-info .add-to-cart-btn {
+        width: 100%;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .product-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .back-btn {
+        width: 100%;
+        justify-content: center;
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-detail-section {
+        padding: 30px 0;
+    }
+
+    .product-images .main-image {
+        height: 250px;
+    }
+
+    .thumbnail {
+        min-width: 60px;
+        height: 60px;
+    }
+
+    .product-info h1 {
+        font-size: 1.8rem;
+    }
+
+    .product-info .descripcion-corta {
+        font-size: 1.1rem;
+        padding: 15px;
+    }
+
+    .image-navigation {
+        width: 35px;
+        height: 35px;
+        font-size: 14px;
+    }
+}
+
+/* ===== OCULTAR IMÁGENES ADICIONALES INICIALMENTE ===== */
+.product-images img:not(.main-image) {
+    display: none;
+}
+
+
+.product-detail-section{
+    padding: 60px 0;
 }

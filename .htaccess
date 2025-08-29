@@ -32,5 +32,30 @@
     Header always set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>
 
-# Prevenir listado de directorios
+# Evitar el acceso a archivos sensibles
+<FilesMatch "\.(htaccess|htpasswd|ini|log|conf|env)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
 Options -Indexes
+
+RewriteEngine On
+# IMPORTANTE: RewriteBase para subcarpeta en XAMPP
+RewriteBase /tiflobraille/
+
+# Proteger archivos de sistema
+RewriteRule ^(css|js|images|plugins|assets)/(.*)$ - [L]
+
+# Regla principal para productos
+RewriteRule ^producto/([a-zA-Z0-9-]+)/([a-zA-Z0-9-]+)/?$ detalle.php?categoria_slug=$1&slug=$2 [L,QSA]
+# Regla para la página de productos
+RewriteRule ^productos/?$ product.php [L,QSA]
+# Otras reglas de reescritura
+RewriteRule ^contacto/?$ contact.html [L]
+RewriteRule ^servicios/?$ service.html [L]
+RewriteRule ^nosotros/?$ about.html [L]
+RewriteRule ^soporte/?$ support.html [L]
+RewriteRule ^$ index.html [L]
+
+# Opcional: Redirección 404 personalizada
+# ErrorDocument 404 /tiflobraille/404.php
